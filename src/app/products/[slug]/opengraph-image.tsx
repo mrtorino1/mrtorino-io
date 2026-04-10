@@ -4,7 +4,7 @@ export const runtime = "edge";
 export const alt = "Product page";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-const accentColors: Record<string, string> = { "tradeschool-ai": "#f97316", "weatherdashboard": "#22d3ee", "claudeomatic": "#8b5cf6", "btcpredictor": "#f59e0b", "kashitrader": "#22c55e", "contentforge": "#ec4899" };
+const accentColors: Record<string, string> = { "tradeschool-ai": "#f97316", "weatherdashboard": "#22d3ee", "claudeomatic": "#8b5cf6", "btcpredictor": "#f59e0b", "kashitrader": "#22c55e", "contentforge": "#ec4899", "backtrader": "#eab308", "tradetracker": "#14b8a6", "tradecreator": "#f43f5e", "weatherscout": "#0ea5e9", "daytrader": "#6366f1", "valuefinder": "#10b981" };
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const product = productMap[slug];
