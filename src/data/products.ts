@@ -16,6 +16,7 @@ export type Product = {
   status: "live" | "beta" | "coming-soon";
   features: { name: string; desc: string }[];
   story: { title: string; body: string }[];
+  logo: string;
 };
 
 export const products: Product[] = [
@@ -23,6 +24,7 @@ export const products: Product[] = [
     slug: "tradeschool-ai",
     name: "TradeSchool AI",
     shortName: "TradeSchool",
+    logo: "/logos/tradeschool-ai.svg",
     tag: "Flagship",
     accent: "text-orange-400",
     border: "border-orange-500/30",
@@ -57,6 +59,7 @@ export const products: Product[] = [
     slug: "weatherdashboard",
     name: "WeatherDashboard",
     shortName: "WeatherDashboard",
+    logo: "/logos/weatherdashboard.svg",
     tag: "Trading Tool",
     accent: "text-cyan-400",
     border: "border-cyan-500/30",
@@ -91,6 +94,7 @@ export const products: Product[] = [
     slug: "claudeomatic",
     name: "ClaudeOmatic",
     shortName: "ClaudeOmatic",
+    logo: "/logos/claudeomatic.svg",
     tag: "AI Automation",
     accent: "text-violet-400",
     border: "border-violet-500/30",
@@ -125,6 +129,7 @@ export const products: Product[] = [
     slug: "btcpredictor",
     name: "BTCPredictor",
     shortName: "BTCPredictor",
+    logo: "/logos/btcpredictor.svg",
     tag: "Signals API",
     accent: "text-amber-400",
     border: "border-amber-500/30",
@@ -157,6 +162,7 @@ export const products: Product[] = [
     slug: "kashitrader",
     name: "KashiTrader",
     shortName: "KashiTrader",
+    logo: "/logos/kashitrader.svg",
     tag: "Automation",
     accent: "text-green-400",
     border: "border-green-500/30",
@@ -189,6 +195,7 @@ export const products: Product[] = [
     slug: "contentforge",
     name: "ContentForge",
     shortName: "ContentForge",
+    logo: "/logos/contentforge.svg",
     tag: "Content AI",
     accent: "text-pink-400",
     border: "border-pink-500/30",

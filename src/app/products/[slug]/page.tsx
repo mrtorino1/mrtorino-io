@@ -6,6 +6,8 @@ import { ChevronLeft } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import ScreenMock from "@/components/ScreenMock";
+import ScreenshotGallery from "@/components/ScreenshotGallery";
+import AccessRequestForm from "@/components/AccessRequestForm";
 import { products, productMap } from "@/data/products";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -201,111 +203,32 @@ export default async function ProductPage({ params }: Props) {
         {product.slug === "tradeschool-ai" && (
           <section id="screenshots" className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
             <div className="text-[10px] uppercase tracking-[0.26em] text-white/35 mb-2">Inside the product</div>
-            <h2 className="text-2xl font-semibold tracking-[-0.03em] mb-12">Every screen is purpose-built.</h2>
-
-            {/* Screenshot 1 — full width hero */}
-            <div className="mb-6">
-              <div className="rounded-[18px] overflow-hidden border border-white/10 shadow-2xl">
-                <Image src="/screenshots/tradeschool/controlroom.png" alt="TradeSchool AI Control Room" width={1280} height={800} className="w-full h-auto" />
-              </div>
-              <div className="mt-4 flex items-start gap-4">
-                <div className="text-orange-400 text-[10px] uppercase tracking-[0.24em] mt-1 w-28 flex-shrink-0">Control Room</div>
-                <p className="text-sm text-white/55 leading-relaxed">Your mission hub. Rex AI Coach on the left, current zone progress in the center, live domain scores across pattern recognition, entry timing, risk management, and strategy discipline.</p>
-              </div>
-            </div>
-
-            {/* Screenshot 2 — full width */}
-            <div className="mb-6">
-              <div className="rounded-[18px] overflow-hidden border border-white/10 shadow-2xl">
-                <Image src="/screenshots/tradeschool/simulator.png" alt="Live Simulator" width={1280} height={800} className="w-full h-auto" />
-              </div>
-              <div className="mt-4 flex items-start gap-4">
-                <div className="text-orange-400 text-[10px] uppercase tracking-[0.24em] mt-1 w-28 flex-shrink-0">Live Simulator</div>
-                <p className="text-sm text-white/55 leading-relaxed">Real candlestick data, VWAP and EMA overlays, MACD panel. Every trade graded live across 5 execution dimensions — not just profit/loss. Grade B means your execution was sound even if the trade lost.</p>
-              </div>
-            </div>
-
-            {/* 2-col row */}
-            <div className="grid grid-cols-2 gap-6 mb-6">
-              <div>
-                <div className="rounded-[18px] overflow-hidden border border-white/10 shadow-2xl">
-                  <Image src="/screenshots/tradeschool/scenarios.png" alt="Scenario Picker" width={1280} height={800} className="w-full h-auto" />
-                </div>
-                <div className="mt-4 flex items-start gap-3">
-                  <div className="text-orange-400 text-[10px] uppercase tracking-[0.24em] mt-1 w-24 flex-shrink-0">Scenarios</div>
-                  <p className="text-xs text-white/50 leading-relaxed">Curated setups across SPY, NVDA, AAPL, TSLA. Each tagged by module, difficulty, and setup type. Not random — built to teach specific patterns.</p>
-                </div>
-              </div>
-              <div>
-                <div className="rounded-[18px] overflow-hidden border border-white/10 shadow-2xl">
-                  <Image src="/screenshots/tradeschool/scorecard.png" alt="Session Complete Score Card" width={1280} height={800} className="w-full h-auto" />
-                </div>
-                <div className="mt-4 flex items-start gap-3">
-                  <div className="text-orange-400 text-[10px] uppercase tracking-[0.24em] mt-1 w-24 flex-shrink-0">Score Card</div>
-                  <p className="text-xs text-white/50 leading-relaxed">Session complete modal shows your grade, execution score, and exactly which dimension cost you. Ask Rex to explain the grade before trading again.</p>
-                </div>
-              </div>
-            </div>
-
-            {/* 2-col row */}
-            <div className="grid grid-cols-2 gap-6">
-              <div>
-                <div className="rounded-[18px] overflow-hidden border border-white/10 shadow-2xl">
-                  <Image src="/screenshots/tradeschool/lesson.png" alt="Lesson Player" width={1280} height={800} className="w-full h-auto" />
-                </div>
-                <div className="mt-4 flex items-start gap-3">
-                  <div className="text-orange-400 text-[10px] uppercase tracking-[0.24em] mt-1 w-24 flex-shrink-0">Lessons</div>
-                  <p className="text-xs text-white/50 leading-relaxed">Structured text lessons with micro-checks on the right panel. Rex available inline to explain harder, give examples, or quiz you mid-section.</p>
-                </div>
-              </div>
-              <div>
-                <div className="rounded-[18px] overflow-hidden border border-white/10 shadow-2xl">
-                  <Image src="/screenshots/tradeschool/journal.png" alt="Trade Journal" width={1280} height={800} className="w-full h-auto" />
-                </div>
-                <div className="mt-4 flex items-start gap-3">
-                  <div className="text-orange-400 text-[10px] uppercase tracking-[0.24em] mt-1 w-24 flex-shrink-0">Journal</div>
-                  <p className="text-xs text-white/50 leading-relaxed">Every trade logged with date, ticker, direction, entry/exit, P&amp;L, grade, and score. Filter by grade, module, result. Track improvement over time, not just wins.</p>
-                </div>
-              </div>
-            </div>
+            <h2 className="text-2xl font-semibold tracking-[-0.03em] mb-10">Every screen is purpose-built.</h2>
+            <ScreenshotGallery accent="text-orange-400" shots={[
+              { src: "/screenshots/tradeschool/trackmap.png", alt: "TradeSchool AI Track Map", label: "Track Map", desc: "The 3D building map that replaces a boring course list. Each room is a learning zone — Risk Desk, Indicator Lab, Psychology Ward, The Pit. Rooms unlock as you progress.", full: true },
+              { src: "/screenshots/tradeschool/controlroom.png", alt: "Control Room", label: "Control Room", desc: "Mission hub. Rex AI Coach on the left, current zone progress center, live domain scores across pattern recognition, entry timing, risk management, and strategy discipline.", full: true },
+              { src: "/screenshots/tradeschool/simulator.png", alt: "Live Simulator", label: "Live Simulator", desc: "Real candlestick data with VWAP and EMA overlays. Every trade graded live across 5 execution dimensions — not just P&L.", full: true },
+              { src: "/screenshots/tradeschool/scenarios.png", alt: "Scenario Picker", label: "Scenarios", desc: "Curated setups across SPY, NVDA, AAPL, TSLA. Tagged by module, difficulty, and setup type. Built to teach specific patterns." },
+              { src: "/screenshots/tradeschool/scorecard.png", alt: "Session Score Card", label: "Score Card", desc: "Grade, execution score, and the exact dimension that cost you. Ask Rex to explain the grade before trading again." },
+              { src: "/screenshots/tradeschool/lesson.png", alt: "Lesson Player", label: "Lessons", desc: "Structured text lessons with micro-checks on the right. Rex available inline to explain harder or quiz you." },
+              { src: "/screenshots/tradeschool/journal.png", alt: "Trade Journal", label: "Journal", desc: "Every trade logged with ticker, direction, P&L, grade, and score. Filter by grade or module. Track improvement over time." },
+              { src: "/screenshots/tradeschool/backtest.png", alt: "Backtest", label: "Backtest", desc: "Pick any historical date, ticker, and strategy. Replay real market sessions graded at 50% XP." },
+              { src: "/screenshots/tradeschool/debrief.png", alt: "Debrief", label: "Debrief", desc: "Weekly Rex summary. Domain scores, coaching notes, strongest and weakest dimension identified." },
+              { src: "/screenshots/tradeschool/lab.png", alt: "Simulator Lab", label: "Lab", desc: "Structured lab exercises. Rex asks graded questions mid-session before the bar closes." },
+              { src: "/screenshots/tradeschool/lessonvisual.png", alt: "Visual Lesson", label: "Visual", desc: "Rich visual lesson slides — ownership grids, market diagrams, side-by-side comparisons." },
+            ]} />
           </section>
         )}
 
         {product.slug === "weatherdashboard" && (
           <section id="screenshots" className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
             <div className="text-[10px] uppercase tracking-[0.26em] text-white/35 mb-2">Inside the product</div>
-            <h2 className="text-2xl font-semibold tracking-[-0.03em] mb-12">Built for weather traders specifically.</h2>
-
-            <div className="mb-6">
-              <div className="rounded-[18px] overflow-hidden border border-white/10 shadow-2xl">
-                <Image src="/screenshots/weatherdashboard/contracts.png" alt="Kalshi Contracts View" width={1280} height={800} className="w-full h-auto" />
-              </div>
-              <div className="mt-4 flex items-start gap-4">
-                <div className="text-cyan-400 text-[10px] uppercase tracking-[0.24em] mt-1 w-28 flex-shrink-0">Contracts</div>
-                <p className="text-sm text-white/55 leading-relaxed">All Kalshi contracts for a city in one clean table. Strike ranges, YES bid-ask, probability bars, volume, and ticker side by side. Scout analysis panel shows edge, NWS forecast, and last 5 settlements.</p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-6">
-              <div>
-                <div className="rounded-[18px] overflow-hidden border border-white/10 shadow-2xl">
-                  <Image src="/screenshots/weatherdashboard/forecasts.png" alt="Forecasts View" width={1280} height={800} className="w-full h-auto" />
-                </div>
-                <div className="mt-4 flex items-start gap-3">
-                  <div className="text-cyan-400 text-[10px] uppercase tracking-[0.24em] mt-1 w-24 flex-shrink-0">Forecasts</div>
-                  <p className="text-xs text-white/50 leading-relaxed">NWS official, Weather Underground, and NBM blend model side by side with confidence scores. Consensus panel shows average high, low, model spread, and confidence in one row.</p>
-                </div>
-              </div>
-              <div>
-                <div className="rounded-[18px] overflow-hidden border border-white/10 shadow-2xl">
-                  <Image src="/screenshots/weatherdashboard/home.png" alt="Home Market View" width={1280} height={800} className="w-full h-auto" />
-                </div>
-                <div className="mt-4 flex items-start gap-3">
-                  <div className="text-cyan-400 text-[10px] uppercase tracking-[0.24em] mt-1 w-24 flex-shrink-0">Market View</div>
-                  <p className="text-xs text-white/50 leading-relaxed">Live Kalshi contracts with real-time bid-ask and probability. NWS city forecast panel on the right keeps all 15 cities visible while you work one contract in detail.</p>
-                </div>
-              </div>
-            </div>
+            <h2 className="text-2xl font-semibold tracking-[-0.03em] mb-10">Built for weather traders specifically.</h2>
+            <ScreenshotGallery accent="text-cyan-400" shots={[
+              { src: "/screenshots/weatherdashboard/contracts.png", alt: "Kalshi Contracts", label: "Contracts", desc: "All Kalshi contracts for a city in one table. Strike ranges, YES bid-ask, probability bars, volume. Scout analysis shows edge, NWS forecast, and last 5 settlements inline.", full: true },
+              { src: "/screenshots/weatherdashboard/forecasts.png", alt: "Forecasts View", label: "Forecasts", desc: "NWS official, Weather Underground, and NBM blend model side by side with confidence scores. Consensus panel averages all models." },
+              { src: "/screenshots/weatherdashboard/home.png", alt: "Home Market View", label: "Market View", desc: "Live Kalshi contracts with real-time bid-ask. NWS city forecast panel keeps all 15 cities visible while you work one contract." },
+            ]} />
           </section>
         )}
 
@@ -320,6 +243,30 @@ export default async function ProductPage({ params }: Props) {
             ))}
           </div>
         </section>
+
+        {/* ACCESS REQUEST */}
+        {(product.pricing === "paid" || product.pricing === "freemium") && (
+          <section className="max-w-7xl mx-auto px-6 lg:px-8 py-10">
+            <div className="grid lg:grid-cols-2 gap-8 items-start">
+              <div>
+                <div className="text-[10px] uppercase tracking-[0.26em] text-white/35 mb-3">Get access</div>
+                <h2 className="text-2xl font-semibold tracking-[-0.03em] mb-4">Ready to use {product.shortName}?</h2>
+                <p className="text-white/50 text-sm leading-relaxed mb-6">
+                  {product.pricing === "paid" ? "This is a paid product. Request access and I'll send pricing and next steps directly." : "Free tier available. Request access for the full version and I'll follow up with details."}
+                </p>
+                <div className="space-y-3">
+                  {product.bullets.map((b: string) => (
+                    <div key={b} className="flex items-start gap-3 text-sm text-white/55">
+                      <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-white/30 flex-shrink-0" />
+                      {b}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <AccessRequestForm productName={product.name} productSlug={product.slug} />
+            </div>
+          </section>
+        )}
 
         {/* RELATED */}
         <section className="max-w-7xl mx-auto px-6 lg:px-8 py-16">

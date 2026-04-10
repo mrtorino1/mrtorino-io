@@ -118,9 +118,12 @@ export default function HomePage() {
                 />
                 <div className="relative">
                   <div className="flex items-start justify-between gap-3 mb-4">
-                    <div>
-                      <div className="text-[10px] uppercase tracking-[0.24em] text-white/38">{product.tag}</div>
-                      <h3 className="text-xl font-semibold tracking-tight mt-2">{product.name}</h3>
+                    <div className="flex items-start gap-3">
+                      <img src={`/logos/${product.slug}.svg`} alt={product.name} className="w-10 h-10 rounded-xl" />
+                      <div>
+                        <div className="text-[10px] uppercase tracking-[0.24em] text-white/38">{product.tag}</div>
+                        <h3 className="text-xl font-semibold tracking-tight mt-2">{product.name}</h3>
+                      </div>
                     </div>
                     <span className={`rounded-full border px-2.5 py-1 text-[10px] ${statusColor[product.status]}`}>
                       {product.status}
@@ -252,9 +255,12 @@ export default function HomePage() {
                 className="group rounded-[20px] border border-white/[0.08] bg-white/[0.035] hover:bg-white/[0.055] p-5 transition-colors block"
               >
                 <div className="flex items-start justify-between gap-3 mb-3">
-                  <div>
-                    <div className="font-semibold text-sm">{product.name}</div>
-                    <div className="text-xs text-white/38 mt-0.5">{product.tag}</div>
+                  <div className="flex items-start gap-3">
+                    <img src={`/logos/${product.slug}.svg`} alt={product.name} className="w-10 h-10 rounded-xl" />
+                    <div>
+                      <div className="font-semibold text-sm">{product.name}</div>
+                      <div className="text-xs text-white/38 mt-0.5">{product.tag}</div>
+                    </div>
                   </div>
                   <span className={`rounded-full border px-2 py-0.5 text-[10px] ${statusColor[product.status]}`}>
                     {product.status}
