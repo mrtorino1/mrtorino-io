@@ -17,6 +17,7 @@ export type Product = {
   features: { name: string; desc: string }[];
   story: { title: string; body: string }[];
   logo: string;
+  hidden?: boolean;
 };
 
 export const products: Product[] = [
@@ -325,6 +326,7 @@ export const products: Product[] = [
   },
   {
     slug: "weatherscout",
+    hidden: true,
     name: "WeatherScout",
     shortName: "WeatherScout",
     logo: "/logos/weatherscout.svg",
@@ -358,6 +360,7 @@ export const products: Product[] = [
   },
   {
     slug: "daytrader",
+    hidden: true,
     name: "DayTrader",
     shortName: "DayTrader",
     logo: "/logos/daytrader.svg",
@@ -391,6 +394,7 @@ export const products: Product[] = [
   },
   {
     slug: "valuefinder",
+    hidden: true,
     name: "ValueFinder",
     shortName: "ValueFinder",
     logo: "/logos/valuefinder.svg",
@@ -426,5 +430,6 @@ export const products: Product[] = [
 
 export const productMap = Object.fromEntries(products.map((p) => [p.slug, p]));
 
-export const featuredProducts = products.slice(0, 3);
-export const libraryProducts = products.slice(3);
+export const visibleProducts = products.filter(p => !p.hidden);
+export const featuredProducts = visibleProducts.slice(0, 3);
+export const libraryProducts = visibleProducts.slice(3);

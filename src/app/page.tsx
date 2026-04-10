@@ -4,7 +4,7 @@ import { ArrowRight, Sparkles, Search, MessageSquare } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import ScreenMock from "@/components/ScreenMock";
-import { featuredProducts, libraryProducts, products } from "@/data/products";
+import { featuredProducts, libraryProducts } from "@/data/products";
 
 export const metadata: Metadata = {
   title: "mrtorino.io — Software Studio",
@@ -80,7 +80,7 @@ export default function HomePage() {
               </div>
 
               <div className="mt-10 grid grid-cols-3 gap-3 max-w-sm">
-                {[["12", "live products"], ["3", "core showcases"], ["Free+", "software mix"]].map(([val, label]) => (
+                {[["9", "live products"], ["3", "core showcases"], ["Free+", "software mix"]].map(([val, label]) => (
                   <div key={label} className="rounded-2xl border border-white/[0.08] bg-white/[0.04] p-4">
                     <div className="text-xl font-semibold tracking-tight">{val}</div>
                     <div className="text-xs text-white/42 mt-1">{label}</div>

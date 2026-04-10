@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { products } from "@/data/products";
+import { visibleProducts } from "@/data/products";
 
 export default function SiteFooter() {
   return (
@@ -11,7 +11,7 @@ export default function SiteFooter() {
             <div className="text-xs text-white/38 mt-1.5">Trading software, AI systems, education platforms.</div>
           </div>
           <div className="flex flex-wrap gap-5">
-            {products.map((p) => (
+            {visibleProducts.map((p) => (
               <Link
                 key={p.slug}
                 href={`/products/${p.slug}`}
