@@ -9,7 +9,7 @@ export default function ScreenMock({ title, bars, accentColor = "rgba(255,255,25
   const b = bars ?? defaultBars;
 
   return (
-    <div className="rounded-[22px] border border-white/[0.09] bg-[#0D131C] shadow-2xl overflow-hidden">
+    <div className="rounded-[20px] border border-white/[0.09] bg-[#0D131C] shadow-2xl overflow-hidden">
       {/* Title bar */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.07] bg-white/[0.025]">
         <div className="flex items-center gap-1.5">
@@ -23,7 +23,7 @@ export default function ScreenMock({ title, bars, accentColor = "rgba(255,255,25
 
       {/* Content */}
       <div className="p-4">
-        <div className="grid grid-cols-12 gap-3 min-h-[200px]">
+        <div className="grid grid-cols-12 gap-3 min-h-[160px]">
           {/* Sidebar */}
           <div className="col-span-3 rounded-xl border border-white/[0.07] bg-white/[0.025] p-2.5 space-y-2.5">
             <div className="h-6 rounded-lg bg-white/[0.06]" />

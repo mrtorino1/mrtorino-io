@@ -91,7 +91,7 @@ export default function HomePage() {
             </div>
 
             {/* Hero mock */}
-            <div className="relative hidden lg:block">
+            <div className="relative hidden lg:block max-h-[420px] overflow-hidden">
               <div className="absolute -inset-4 rounded-[32px] bg-white/[0.03] blur-2xl" />
               <ScreenMock title="mrtorino / featured products" />
               <div className="absolute -bottom-4 -left-4 rounded-2xl border border-white/10 bg-[#0D121A]/90 px-4 py-3 backdrop-blur-xl shadow-xl">

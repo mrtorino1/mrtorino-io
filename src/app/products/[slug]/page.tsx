@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
@@ -113,10 +114,20 @@ export default async function ProductPage({ params }: Props) {
                 className="absolute -inset-5 blur-2xl rounded-[36px]"
                 style={{ background: product.glowColor }}
               />
-              <ScreenMock
-                title={`${product.name} / interface preview`}
-                accentColor={product.glowColor}
-              />
+              {product.slug === "tradeschool-ai" ? (
+                <div className="relative rounded-[20px] overflow-hidden border border-white/10 shadow-2xl">
+                  <Image src="/screenshots/tradeschool/trackmap.png" alt="TradeSchool AI Track Map" width={1280} height={800} className="w-full h-auto" priority />
+                </div>
+              ) : product.slug === "weatherdashboard" ? (
+                <div className="relative rounded-[20px] overflow-hidden border border-white/10 shadow-2xl">
+                  <Image src="/screenshots/weatherdashboard/home.png" alt="WeatherDashboard" width={1280} height={800} className="w-full h-auto" priority />
+                </div>
+              ) : (
+                <ScreenMock
+                  title={`${product.name} / interface preview`}
+                  accentColor={product.glowColor}
+                />
+              )}
             </div>
           </div>
         </section>
@@ -184,6 +195,27 @@ export default async function ProductPage({ params }: Props) {
             ))}
           </div>
         </section>
+
+        {/* SCREENSHOTS */}
+        {product.slug === "tradeschool-ai" && (
+          <section className="max-w-7xl mx-auto px-6 lg:px-8 py-10">
+            <div className="text-[10px] uppercase tracking-[0.26em] text-white/35 mb-6">Screenshots</div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="rounded-[16px] overflow-hidden border border-white/10">
+                <Image src="/screenshots/tradeschool/controlroom.png" alt="Control Room" width={1280} height={800} className="w-full h-auto" />
+              </div>
+              <div className="rounded-[16px] overflow-hidden border border-white/10">
+                <Image src="/screenshots/tradeschool/simulator.png" alt="Live Simulator" width={1280} height={800} className="w-full h-auto" />
+              </div>
+              <div className="rounded-[16px] overflow-hidden border border-white/10">
+                <Image src="/screenshots/tradeschool/lesson.png" alt="Lesson Player" width={1280} height={800} className="w-full h-auto" />
+              </div>
+              <div className="rounded-[16px] overflow-hidden border border-white/10">
+                <Image src="/screenshots/tradeschool/scorecard.png" alt="Score Card" width={1280} height={800} className="w-full h-auto" />
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* STORY */}
         <section className="max-w-7xl mx-auto px-6 lg:px-8 py-10">
