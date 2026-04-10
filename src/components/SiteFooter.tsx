@@ -21,8 +21,11 @@ export default function SiteFooter() {
               </Link>
             ))}
           </div>
-          <div className="text-xs text-white/28">
-            © {new Date().getFullYear()} mrtorino.io
+          <div>
+            <div className="text-xs text-white/22 mt-4">Designed, built, and shipped by one person. Medford, OR.</div>
+            <div className="text-xs text-white/28">
+              © {new Date().getFullYear()} mrtorino.io
+            </div>
           </div>
         </div>
       </div>

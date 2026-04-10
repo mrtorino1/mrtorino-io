@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "A software studio building trading tools, AI automation systems, and education platforms. TradeSchool AI, WeatherDashboard, ClaudeOmatic, and more.",
 };
 
-const chips = ["AI Automation", "Trading Tools", "Education", "Live Products", "Free + Paid"];
+const chips = ["Day Trading", "AI Automation", "Weather Markets", "BTC Signals", "Content AI"];
 
 const pricingLabel: Record<string, string> = {
   free: "Free",
@@ -47,13 +47,12 @@ export default function HomePage() {
               </div>
 
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-[-0.045em] leading-[0.96] max-w-xl">
-                Showcase software
-                <span className="block text-white/55 mt-1">built with real systems behind it.</span>
+                I build software
+                <span className="block text-white/55 mt-1">that does real things.</span>
               </h1>
 
               <p className="mt-6 text-lg text-white/55 max-w-xl leading-relaxed">
-                mrtorino.io is a product studio for trading software, AI infrastructure, and learning platforms
-                — led by TradeSchool AI, WeatherDashboard, and ClaudeOmatic.
+                Trading tools, AI systems, and education platforms — built by one person, shipped live, and used daily. No demos. No mockups. Real products.
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2">
@@ -172,9 +171,9 @@ export default function HomePage() {
                 <Link href="/products/tradeschool-ai" className="inline-flex items-center h-11 px-6 rounded-2xl bg-orange-500 hover:bg-orange-400 text-white text-sm font-medium transition-colors">
                   View TradeSchool AI
                 </Link>
-                <button className="inline-flex items-center h-11 px-6 rounded-2xl border border-white/12 bg-white/[0.04] text-white text-sm hover:bg-white/[0.08] transition-colors">
+                <Link href="/products/tradeschool-ai#screenshots" className="inline-flex items-center h-11 px-6 rounded-2xl border border-white/12 bg-white/[0.04] text-white text-sm hover:bg-white/[0.08] transition-colors">
                   See screenshots
-                </button>
+                </Link>
               </div>
             </div>
             <div className="relative">
@@ -278,16 +277,16 @@ export default function HomePage() {
               <div>
                 <div className="text-[10px] uppercase tracking-[0.26em] text-white/35 mb-4">Ideas &amp; interaction</div>
                 <h2 className="text-3xl sm:text-4xl font-semibold tracking-[-0.03em] max-w-lg">
-                  Talk about the products. Shape what gets built next.
+                  Got a feature idea? Found a bug? Just want to say something works — or doesn&apos;t?
                 </h2>
                 <p className="mt-4 text-white/52 text-lg leading-relaxed max-w-lg">
-                  This site isn&apos;t just a showcase. It&apos;s a place for discussion, feature ideas, build notes, and feedback from real users.
+                  I read everything. Not a support ticket system. Just a direct line to the person who built it.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  <button className="inline-flex items-center gap-2 h-11 px-6 rounded-2xl bg-white text-[#070B10] text-sm font-medium hover:bg-white/90 transition-colors">
+                  <a href="mailto:hello@mrtorino.io" className="inline-flex items-center gap-2 h-11 px-6 rounded-2xl bg-white text-[#070B10] text-sm font-medium hover:bg-white/90 transition-colors">
                     <MessageSquare className="h-4 w-4" />
                     Share an idea
-                  </button>
+                  </a>
                   <button className="inline-flex items-center h-11 px-6 rounded-2xl border border-white/12 bg-white/[0.04] text-white text-sm hover:bg-white/[0.08] transition-colors">
                     View build notes
                   </button>

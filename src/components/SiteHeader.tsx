@@ -48,7 +48,7 @@ export default function SiteHeader() {
           {/* Actions */}
           <div className="flex items-center gap-2">
             <Link
-              href="/#ideas"
+              href="mailto:hello@mrtorino.io"
               className="hidden sm:inline-flex items-center h-8 px-4 rounded-xl border border-white/12 bg-white/[0.04] text-white/65 text-sm hover:bg-white/[0.08] hover:text-white transition-all"
             >
               Share an idea
