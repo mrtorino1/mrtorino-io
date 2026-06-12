@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #070B10;
-  --foreground: #ffffff;
+  --background: #faf9f7;
+  --surface: #ffffff;
+  --border: #e7e4de;
+  --foreground: #111111;
+  --muted: #75706b;
 }
 
 * {
@@ -10,8 +13,8 @@
 }
 
 body {
-  background: #070B10;
-  color: #ffffff;
+  background: var(--background);
+  color: var(--foreground);
   font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -20,11 +23,42 @@ body {
 h1, h2, h3 { font-weight: 600; }
 .font-semibold { font-weight: 600; }
 
+/* Display type — Bebas Neue via next/font */
+.font-display {
+  font-family: var(--font-display), var(--font-geist-sans), sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.015em;
+}
+
+/* Editorial outlined-word treatment */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--foreground);
+}
+
+/* Product cards — accent set per-card via --accent / --accent-glow inline vars */
+.product-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 2px rgba(17, 17, 17, 0.03);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+.product-card:hover {
+  border-color: var(--accent, var(--foreground));
+  box-shadow: 0 8px 32px var(--accent-glow, rgba(17, 17, 17, 0.08));
+  transform: translateY(-2px);
+}
+
+::selection {
+  background: var(--foreground);
+  color: var(--background);
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #070B10; }
-::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: #d8d4cc; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
 
 /* Page transitions */
 @keyframes fadeUp {
@@ -38,6 +72,6 @@ h1, h2, h3 { font-weight: 600; }
 
 /* Focus styles */
 *:focus-visible {
-  outline: 2px solid rgba(255,255,255,0.3);
+  outline: 2px solid rgba(17, 17, 17, 0.45);
   outline-offset: 2px;
 }

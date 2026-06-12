@@ -24,7 +24,7 @@ export default function ScreenshotGallery({ shots, accent = "text-white/55" }: {
       <div className="space-y-6">
         {fullShots.map(shot => (
           <div key={shot.src}>
-            <div className="relative rounded-[16px] overflow-hidden border border-white/10 shadow-xl cursor-zoom-in group" onClick={() => setActive(shot)}>
+            <div className="relative overflow-hidden border border-[#e7e4de] shadow-xl cursor-zoom-in group" onClick={() => setActive(shot)}>
               <Image src={shot.src} alt={shot.alt} width={1280} height={800} className="w-full h-auto transition-transform duration-300 group-hover:scale-[1.01]" />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors flex items-center justify-center">
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/70 rounded-full px-4 py-2 text-xs text-white/90 backdrop-blur-sm">Click to expand</div>
@@ -32,7 +32,7 @@ export default function ScreenshotGallery({ shots, accent = "text-white/55" }: {
             </div>
             <div className="mt-4 flex items-start gap-4">
               <div className={`text-[10px] uppercase tracking-[0.24em] mt-1 w-28 flex-shrink-0 ${accent}`}>{shot.label}</div>
-              <p className="text-sm text-white/52 leading-relaxed">{shot.desc}</p>
+              <p className="text-sm text-[#75706b] leading-relaxed">{shot.desc}</p>
             </div>
           </div>
         ))}
@@ -40,7 +40,7 @@ export default function ScreenshotGallery({ shots, accent = "text-white/55" }: {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {halfShots.map(shot => (
               <div key={shot.src}>
-                <div className="relative rounded-[16px] overflow-hidden border border-white/10 shadow-xl cursor-zoom-in group" onClick={() => setActive(shot)}>
+                <div className="relative overflow-hidden border border-[#e7e4de] shadow-xl cursor-zoom-in group" onClick={() => setActive(shot)}>
                   <Image src={shot.src} alt={shot.alt} width={1280} height={800} className="w-full h-auto transition-transform duration-300 group-hover:scale-[1.02]" />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors flex items-center justify-center">
                     <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/70 rounded-full px-4 py-2 text-xs text-white/90 backdrop-blur-sm">Click to expand</div>
@@ -48,7 +48,7 @@ export default function ScreenshotGallery({ shots, accent = "text-white/55" }: {
                 </div>
                 <div className="mt-3 flex items-start gap-3">
                   <div className={`text-[10px] uppercase tracking-[0.24em] mt-1 w-24 flex-shrink-0 ${accent}`}>{shot.label}</div>
-                  <p className="text-xs text-white/48 leading-relaxed">{shot.desc}</p>
+                  <p className="text-xs text-[#75706b] leading-relaxed">{shot.desc}</p>
                 </div>
               </div>
             ))}

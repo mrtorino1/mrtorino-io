@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+const bebasNeue = Bebas_Neue({ weight: "400", variable: "--font-display", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mrtorino.io"),
+  metadataBase: new URL("https://www.mrtorino.io"),
   title: {
     default: "mrtorino.io — Software Studio",
     template: "%s | mrtorino.io",
   },
+  alternates: { canonical: "https://www.mrtorino.io" },
   description:
     "A software studio building trading tools, AI automation systems, and education platforms. Products include TradeSchool AI, WeatherDashboard, ClaudeOmatic, and more.",
   keywords: [
@@ -23,18 +25,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://mrtorino.io",
+    url: "https://www.mrtorino.io",
     siteName: "mrtorino.io",
     title: "mrtorino.io — Software Studio",
     description:
       "Trading tools, AI automation, and education platforms built with real systems behind them.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "mrtorino.io Software Studio" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "mrtorino.io — Software Studio",
     description: "Trading tools, AI automation, and education platforms.",
-    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${bebasNeue.variable} antialiased`}>
         {children}
       </body>
     </html>

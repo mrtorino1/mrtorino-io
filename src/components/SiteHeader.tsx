@@ -16,28 +16,28 @@ export default function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 backdrop-blur-xl bg-[#070B10]/80 border-b border-white/[0.08]">
+      <header className="sticky top-0 z-50 backdrop-blur-xl bg-[#faf9f7]/85 border-b border-[#e7e4de]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 h-[68px] flex items-center justify-between gap-4">
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="h-8 w-8 rounded-xl bg-white text-[#070B10] flex items-center justify-center font-bold text-sm flex-shrink-0">
+            <div className="h-8 w-8 bg-[#111111] text-[#faf9f7] flex items-center justify-center font-bold text-sm flex-shrink-0">
               M
             </div>
             <div>
               <div className="font-semibold tracking-tight text-sm leading-none">mrtorino.io</div>
-              <div className="text-[10px] uppercase tracking-[0.22em] text-white/35 mt-0.5">Software Studio</div>
+              <div className="text-[10px] uppercase tracking-[0.22em] text-[#75706b] mt-0.5">Software Studio</div>
             </div>
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6 text-sm text-white/55">
+          <nav className="hidden md:flex items-center gap-7 text-xs uppercase tracking-[0.14em] text-[#75706b]">
             {navLinks.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`transition-colors hover:text-white ${
-                  pathname === item.href ? "text-white" : ""
+                className={`transition-colors hover:text-[#111111] ${
+                  pathname === item.href ? "text-[#111111]" : ""
                 }`}
               >
                 {item.label}
@@ -49,18 +49,18 @@ export default function SiteHeader() {
           <div className="flex items-center gap-2">
             <Link
               href="mailto:hello@mrtorino.io"
-              className="hidden sm:inline-flex items-center h-8 px-4 rounded-xl border border-white/12 bg-white/[0.04] text-white/65 text-sm hover:bg-white/[0.08] hover:text-white transition-all"
+              className="hidden sm:inline-flex items-center h-8 px-4 border border-[#e7e4de] text-[#75706b] text-xs uppercase tracking-[0.1em] hover:border-[#111111] hover:text-[#111111] transition-all"
             >
               Share an idea
             </Link>
             <Link
               href="/products/tradeschool-ai"
-              className="inline-flex items-center h-8 px-4 rounded-xl bg-white text-[#070B10] text-sm font-medium hover:bg-white/90 transition-colors"
+              className="inline-flex items-center h-8 px-4 bg-[#111111] text-[#faf9f7] text-xs font-medium uppercase tracking-[0.1em] hover:bg-black transition-colors"
             >
               Explore
             </Link>
             <button
-              className="md:hidden h-8 w-8 rounded-xl border border-white/12 bg-white/[0.04] text-white flex items-center justify-center"
+              className="md:hidden h-8 w-8 border border-[#e7e4de] text-[#111111] flex items-center justify-center"
               onClick={() => setOpen(true)}
             >
               <Menu className="h-4 w-4" />
@@ -72,13 +72,13 @@ export default function SiteHeader() {
       {/* Mobile drawer */}
       {open && (
         <div className="fixed inset-0 z-[80] md:hidden">
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setOpen(false)} />
-          <div className="absolute right-0 top-0 h-full w-[260px] bg-[#0D121A] border-l border-white/10 p-6 flex flex-col">
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setOpen(false)} />
+          <div className="absolute right-0 top-0 h-full w-[260px] bg-[#faf9f7] border-l border-[#e7e4de] p-6 flex flex-col">
             <div className="flex items-center justify-between mb-8">
-              <div className="font-semibold text-sm">Navigation</div>
+              <div className="text-[11px] uppercase tracking-[0.3em] text-[#75706b]">Navigation</div>
               <button
                 onClick={() => setOpen(false)}
-                className="h-8 w-8 rounded-xl border border-white/10 bg-white/[0.04] flex items-center justify-center"
+                className="h-8 w-8 border border-[#e7e4de] flex items-center justify-center"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -89,10 +89,10 @@ export default function SiteHeader() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className={`rounded-xl border px-4 py-3 text-sm transition-colors ${
+                  className={`border px-4 py-3 text-sm transition-colors ${
                     pathname === item.href
-                      ? "border-white/20 bg-white/[0.07] text-white"
-                      : "border-white/[0.08] bg-white/[0.03] text-white/65 hover:text-white"
+                      ? "border-[#111111] bg-[#ffffff] text-[#111111]"
+                      : "border-[#e7e4de] bg-[#ffffff] text-[#75706b] hover:text-[#111111]"
                   }`}
                 >
                   {item.label}
