@@ -10,7 +10,8 @@ import { OrganizationJsonLd } from "@/components/JsonLd";
 import { featuredProducts, libraryProducts } from "@/data/products";
 
 export const metadata: Metadata = {
-  title: "Software Studio",
+  // No title here — the root segment doesn't get layout's title.template,
+  // so fall back to layout's default: "mrtorino.io — Software Studio"
   description:
     "A software studio building trading tools, AI automation systems, and education platforms. TradeSchool AI, WeatherDashboard, ClaudeOmatic, and more.",
 };
