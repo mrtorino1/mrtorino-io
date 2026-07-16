@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { ExpandIcon, LightboxTrigger } from "../lightbox";
 import { ContactForm } from "./contact-form";
 
 export const metadata: Metadata = {
@@ -25,6 +26,13 @@ export default function BseContactPage() {
           <p className="bse-eyebrow mb-4">Contact</p>
           <h1 className="bse-display text-5xl sm:text-7xl">Contact Us With Your Project</h1>
         </div>
+        <LightboxTrigger
+          images={[{ src: "/bse/contact.jpg", alt: "Drill site at dusk on a Big Sky Exploration project" }]}
+          label="Expand image: drill site at dusk"
+          className="absolute bottom-4 right-4 z-10 rounded-sm bg-black/60 p-2 text-[var(--bse-text)] transition-colors hover:text-[var(--bse-accent)]"
+        >
+          <ExpandIcon className="h-5 w-5" />
+        </LightboxTrigger>
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-20">

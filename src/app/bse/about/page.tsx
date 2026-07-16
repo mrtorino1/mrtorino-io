@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ExpandIcon, LightboxTrigger } from "../lightbox";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "Core Values",
   description:
-    "Big Sky Exploration was established out of a pure passion for diamond core drilling. Flexibility and adaptability to hole conditions maximize core recovery.",
+    "We established Big Sky Exploration out of a pure passion for diamond core drilling — flexibility and adaptability to hole conditions maximize core recovery.",
 };
 
 const capabilities = [
@@ -44,6 +45,13 @@ export default function BseAboutPage() {
           <p className="bse-eyebrow mb-4">About Big Sky Exploration</p>
           <h1 className="bse-display text-6xl sm:text-7xl">Core Values</h1>
         </div>
+        <LightboxTrigger
+          images={[{ src: "/bse/about.jpg", alt: "Big Sky Exploration crew and drill rig on site" }]}
+          label="Expand image: crew and drill rig on site"
+          className="absolute bottom-4 right-4 z-10 rounded-sm bg-black/60 p-2 text-[var(--bse-text)] transition-colors hover:text-[var(--bse-accent)]"
+        >
+          <ExpandIcon className="h-5 w-5" />
+        </LightboxTrigger>
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-20">
@@ -75,15 +83,28 @@ export default function BseAboutPage() {
               Get In Touch
             </Link>
           </div>
-          <div className="relative min-h-[320px] border border-[var(--bse-border)] lg:min-h-0">
+          <LightboxTrigger
+            images={[
+              {
+                src: "/bse/dolomite-2.jpg",
+                alt: "Recovered core samples from a sanded dolomite formation",
+                caption: "Sanded Dolomite",
+              },
+            ]}
+            label="Expand image: sanded dolomite core samples"
+            className="group relative block min-h-[320px] w-full overflow-hidden border border-[var(--bse-border)] lg:min-h-0"
+          >
             <Image
               src="/bse/dolomite-2.jpg"
               alt="Recovered core samples from a sanded dolomite formation"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
-          </div>
+            <span className="absolute bottom-2 right-2 rounded-sm bg-black/60 p-1.5 text-[var(--bse-text)] opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100">
+              <ExpandIcon className="h-4 w-4" />
+            </span>
+          </LightboxTrigger>
         </div>
       </section>
 

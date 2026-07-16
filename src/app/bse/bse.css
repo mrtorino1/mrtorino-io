@@ -42,6 +42,23 @@
   color: var(--bse-accent);
 }
 
+/* Lightbox open zoom — skipped entirely for reduced-motion users */
+@media (prefers-reduced-motion: no-preference) {
+  .bse-lightbox-img {
+    animation: bse-lightbox-zoom 0.2s ease;
+  }
+  @keyframes bse-lightbox-zoom {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
 .bse input,
 .bse select,
 .bse textarea {

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { ExpandIcon, LightboxTrigger } from "../lightbox";
 import { CareersForm } from "./careers-form";
 
 export const metadata: Metadata = {
@@ -40,6 +41,13 @@ export default function BseCareersPage() {
             We’re a Team. <span className="text-[var(--bse-accent)]">Come Join Us.</span>
           </h1>
         </div>
+        <LightboxTrigger
+          images={[{ src: "/bse/hiring.jpg", alt: "Big Sky Exploration crew at work on the drill platform" }]}
+          label="Expand image: crew at work on the drill platform"
+          className="absolute bottom-4 right-4 z-10 rounded-sm bg-black/60 p-2 text-[var(--bse-text)] transition-colors hover:text-[var(--bse-accent)]"
+        >
+          <ExpandIcon className="h-5 w-5" />
+        </LightboxTrigger>
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-20">
@@ -66,15 +74,22 @@ export default function BseCareersPage() {
                 ))}
               </ul>
             </div>
-            <div className="relative hidden aspect-[3/4] border border-[var(--bse-border)] lg:block">
+            <LightboxTrigger
+              images={[{ src: "/bse/lf90-sunrise.jpg", alt: "LF 90 drill rig at sunrise", caption: "LF 90 Sunrise" }]}
+              label="Expand image: LF 90 drill rig at sunrise"
+              className="group relative hidden aspect-[3/4] w-full overflow-hidden border border-[var(--bse-border)] lg:block"
+            >
               <Image
                 src="/bse/lf90-sunrise.jpg"
                 alt="LF 90 drill rig at sunrise"
                 fill
                 sizes="320px"
-                className="object-cover"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-            </div>
+              <span className="absolute bottom-2 right-2 rounded-sm bg-black/60 p-1.5 text-[var(--bse-text)] opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100">
+                <ExpandIcon className="h-4 w-4" />
+              </span>
+            </LightboxTrigger>
           </aside>
 
           <div>

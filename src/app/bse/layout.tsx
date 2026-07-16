@@ -3,6 +3,7 @@ import { Barlow_Condensed } from "next/font/google";
 import Link from "next/link";
 import "./bse.css";
 import { BseNav } from "./nav";
+import { BSE_DESCRIPTION, BSE_INDEXABLE, BSE_TITLE, BSE_URL } from "./seo";
 
 // Client-site display font, loaded here (not in the root layout) so the BSE
 // staging site shares no branding with mrtorino.io and can be extracted whole.
@@ -12,14 +13,44 @@ const barlowCondensed = Barlow_Condensed({
   variable: "--font-bse-display",
 });
 
+const heroImage = {
+  url: "/bse/hero.jpg",
+  alt: "Diamond core drill rig operating on a Big Sky Exploration project site",
+};
+
 export const metadata: Metadata = {
   title: {
-    default: "Big Sky Exploration — Surface Diamond Core Drilling",
+    default: BSE_TITLE,
     template: "%s | Big Sky Exploration",
   },
-  description:
-    "Big Sky Exploration, LLC is a surface diamond core drilling company specializing in core recovery. Where integrity, ingenuity, and quality result in success. AZ ROC 354039.",
-  robots: { index: false, follow: false },
+  description: BSE_DESCRIPTION,
+  keywords: [
+    "diamond core drilling",
+    "surface core drilling",
+    "core recovery",
+    "mineral exploration drilling",
+    "PQ HQ NQ core",
+    "drilling contractor Nevada",
+    "drilling contractor Arizona",
+    "Big Sky Exploration",
+  ],
+  // Override the parent-site canonical/OG so link previews carry BSE branding.
+  alternates: { canonical: BSE_URL },
+  openGraph: {
+    type: "website",
+    url: BSE_URL,
+    siteName: "Big Sky Exploration",
+    title: BSE_TITLE,
+    description: BSE_DESCRIPTION,
+    images: [heroImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: BSE_TITLE,
+    description: BSE_DESCRIPTION,
+    images: [heroImage],
+  },
+  robots: BSE_INDEXABLE ? { index: true, follow: true } : { index: false, follow: false },
 };
 
 export default function BseLayout({ children }: { children: React.ReactNode }) {

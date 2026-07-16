@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ExpandIcon, LightboxTrigger } from "./lightbox";
+import { BSE_DESCRIPTION, BSE_URL } from "./seo";
 
 const strengths = [
   {
@@ -35,9 +37,34 @@ const gallery = [
   { src: "/bse/lf90-sunrise.jpg", label: "LF 90 Sunrise" },
 ];
 
+const galleryImages = gallery.map((g) => ({
+  src: g.src,
+  alt: `${g.label} — Big Sky Exploration drilling operations`,
+  caption: g.label,
+}));
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "GeneralContractor",
+  name: "Big Sky Exploration, LLC",
+  telephone: "+1-602-329-6330",
+  email: "bse.b.sieben@gmail.com",
+  url: BSE_URL,
+  description: BSE_DESCRIPTION,
+  identifier: {
+    "@type": "PropertyValue",
+    propertyID: "AZ ROC",
+    value: "354039",
+  },
+};
+
 export default function BseHomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero */}
       <section className="relative flex min-h-[85vh] items-center overflow-hidden">
         <Image
@@ -98,17 +125,25 @@ export default function BseHomePage() {
           <p className="bse-eyebrow mb-3">Success in Action</p>
           <h2 className="bse-display text-4xl sm:text-5xl">From the Field</h2>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {gallery.map((g) => (
+            {gallery.map((g, i) => (
               <figure key={g.src} className="group border border-[var(--bse-border)] bg-[var(--bse-card)]">
-                <div className="relative aspect-[4/3] overflow-hidden">
+                <LightboxTrigger
+                  images={galleryImages}
+                  startIndex={i}
+                  label={`Expand image: ${g.label}`}
+                  className="relative block aspect-[4/3] w-full overflow-hidden"
+                >
                   <Image
                     src={g.src}
                     alt={`${g.label} — Big Sky Exploration drilling operations`}
                     fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                </div>
+                  <span className="absolute bottom-2 right-2 rounded-sm bg-black/60 p-1.5 text-[var(--bse-text)] opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100">
+                    <ExpandIcon className="h-4 w-4" />
+                  </span>
+                </LightboxTrigger>
                 <figcaption className="border-t border-[var(--bse-border)] px-4 py-3 font-mono text-xs uppercase tracking-widest text-[var(--bse-muted)]">
                   {g.label}
                 </figcaption>
