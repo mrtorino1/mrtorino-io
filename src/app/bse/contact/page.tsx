@@ -17,17 +17,21 @@ export default function BseContactPage() {
       <section className="border-b border-[var(--bse-border)]">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 md:grid-cols-[3fr_2fr] md:py-20">
           <div>
-            <p className="bse-eyebrow mb-4">Contact</p>
-            <h1 className="bse-display text-5xl sm:text-7xl">Contact Us With Your Project</h1>
+            <h1 className="text-4xl font-semibold sm:text-5xl">Contact Us With Your Project</h1>
           </div>
           <LightboxTrigger
-            images={[{ src: "/bse/contact.jpg", alt: "Drill site at dusk on a Big Sky Exploration project" }]}
-            label="Expand image: drill site at dusk"
-            className="group relative block aspect-[3/4] w-full overflow-hidden border border-[var(--bse-border)]"
+            images={[
+              {
+                src: "/bse/contact.jpg",
+                alt: "Recovered core visible inside the tube at the rig, driller in high-vis and hardhat behind",
+              },
+            ]}
+            label="Expand image: core in the tube at the rig"
+            className="group relative block aspect-[3/4] w-full overflow-hidden border border-[var(--bse-border)] transition-colors hover:border-[var(--bse-border-strong)]"
           >
             <Image
               src="/bse/contact.jpg"
-              alt="Drill site at dusk on a Big Sky Exploration project"
+              alt="Recovered core visible inside the tube at the rig, driller in high-vis and hardhat behind"
               fill
               priority
               sizes="(max-width: 768px) 100vw, 40vw"
@@ -47,20 +51,20 @@ export default function BseContactPage() {
           </div>
           <aside className="space-y-8">
             <div>
-              <p className="bse-eyebrow mb-3">Email</p>
+              <p className="mb-2 text-sm font-semibold">Email</p>
               <a href="mailto:bse.b.sieben@gmail.com" className="break-all hover:text-[var(--bse-accent)]">
                 bse.b.sieben@gmail.com
               </a>
             </div>
             <div>
-              <p className="bse-eyebrow mb-3">Phone</p>
+              <p className="mb-2 text-sm font-semibold">Phone</p>
               <a href="tel:+16023296330" className="hover:text-[var(--bse-accent)]">
                 602-329-6330
               </a>
             </div>
             <div>
-              <p className="bse-eyebrow mb-3">License</p>
-              <p className="text-[var(--bse-muted)]">AZ ROC 354039</p>
+              <p className="mb-2 text-sm font-semibold">License</p>
+              <p className="text-[var(--bse-muted)]">AZ ROC 354039 · Licensed &amp; insured</p>
             </div>
             <div className="border border-[var(--bse-border)] bg-[var(--bse-card)] p-6 text-sm leading-relaxed text-[var(--bse-muted)]">
               Tell us about your target, ground conditions, and program length — we will get back to

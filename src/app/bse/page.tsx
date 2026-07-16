@@ -3,43 +3,74 @@ import Link from "next/link";
 import { ExpandIcon, LightboxTrigger } from "./lightbox";
 import { BSE_DESCRIPTION, BSE_URL } from "./seo";
 
+// Value props — headings are the first sentence of each original blurb,
+// bodies are the remaining client copy verbatim.
 const strengths = [
   {
-    n: "01",
-    title: "Core Recovery",
-    body: "Highly skilled and professional. We provide industry clients with high core recovery in an economical and reliable manner, every time.",
+    title: "Highly skilled and professional",
+    body: "We provide industry clients with high core recovery in an economical and reliable manner, every time.",
   },
   {
-    n: "02",
-    title: "Equipment & Tooling",
-    body: "Current equipment and tooling. We proudly stock multiple drill parts in our inventory, minimizing down time due to mechanical breakdowns.",
+    title: "Current equipment and tooling",
+    body: "We proudly stock multiple drill parts in our inventory, minimizing down time due to mechanical breakdowns.",
   },
   {
-    n: "03",
-    title: "On Time, On Budget",
-    body: "Timely, within budget, without sacrificing quality. We strive to run an efficient drill program, in return, keeping the project cost at a minimum.",
+    title: "Timely, within budget, without sacrificing quality",
+    body: "We strive to run an efficient drill program, in return, keeping the project cost at a minimum.",
   },
   {
-    n: "04",
-    title: "Safety First",
-    body: "Unwavering commitment to safety. We continually train our crews and stay up-to-date on the latest regulations and safety information.",
+    title: "Unwavering commitment to safety",
+    body: "We continually train our crews and stay up-to-date on the latest regulations and safety information.",
   },
 ];
 
 const gallery = [
-  { src: "/bse/lf90-1.jpg", label: "LF 90" },
-  { src: "/bse/lf90-lf230.jpg", label: "LF 90 and LF 230" },
-  { src: "/bse/lf90-2.jpg", label: "LF 90" },
-  { src: "/bse/reclamation.jpg", label: "Reclamation" },
-  { src: "/bse/dolomite-1.jpg", label: "Sanded Dolomite" },
-  { src: "/bse/dolomite-closeup.jpg", label: "Sanded Dolomite, Close-Up" },
-  { src: "/bse/dolomite-2.jpg", label: "Sanded Dolomite" },
-  { src: "/bse/lf90-sunrise.jpg", label: "LF 90 Sunrise" },
+  {
+    src: "/bse/lf90-sunrise.jpg",
+    label: "LF 90 at first light",
+    alt: "Sunrise over the mountains from the drill shack doorway, heater glowing and a trailer of drill rod in the foreground",
+    wide: true,
+  },
+  {
+    src: "/bse/lf90-1.jpg",
+    label: "LF 90 on a northern Nevada core program",
+    alt: "Drill rig with mast raised under a double rainbow after a passing storm",
+  },
+  {
+    src: "/bse/lf90-lf230.jpg",
+    label: "LF 90 and LF 230 running side by side",
+    alt: "Two core rigs working neighboring pads on a juniper-covered hillside",
+  },
+  {
+    src: "/bse/lf90-2.jpg",
+    label: "LF 90 set up on a ridgetop pad",
+    alt: "Rig on a graded ridgetop pad with the access road and basin visible below",
+  },
+  {
+    src: "/bse/reclamation.jpg",
+    label: "Site reclamation after program completion",
+    alt: "Backhoe regrading a hillside drill pad during reclamation work",
+  },
+  {
+    src: "/bse/dolomite-1.jpg",
+    label: "Sanded dolomite core",
+    alt: "Wooden tray holding a run of freshly recovered sanded dolomite core",
+  },
+  {
+    src: "/bse/dolomite-closeup.jpg",
+    label: "Sanded dolomite — close-up",
+    alt: "Hand holding a broken section of sanded dolomite core above the tray",
+  },
+  {
+    src: "/bse/dolomite-2.jpg",
+    label: "Recovered core boxed for logging",
+    alt: "Core boxes filled with sanded dolomite intervals awaiting geologic logging",
+  },
 ];
 
 const galleryImages = gallery.map((g) => ({
   src: g.src,
-  alt: `${g.label} — Big Sky Exploration drilling operations`,
+  alt: g.alt,
   caption: g.label,
 }));
 
@@ -70,27 +101,28 @@ export default function BseHomePage() {
       <section className="border-b border-[var(--bse-border)]">
         <div className="mx-auto grid min-h-[85vh] max-w-6xl items-center gap-10 px-5 md:grid-cols-[55fr_45fr] md:gap-12">
           <div className="pt-14 md:py-16">
-            <p className="bse-eyebrow mb-5">Surface Diamond Core Drilling · AZ ROC 354039</p>
+            <p className="mb-5 text-sm text-[var(--bse-muted)]">
+              Surface diamond core drilling · Licensed &amp; insured · AZ ROC 354039
+            </p>
             <h1 className="bse-display text-6xl sm:text-7xl lg:text-8xl">
-              Specializing in <span className="text-[var(--bse-accent)]">Core Recovery</span>
+              Specializing in Core Recovery
             </h1>
             <p className="mt-6 max-w-xl text-lg text-[var(--bse-muted)]">
-              Where Integrity, Ingenuity, and Quality Result In Success. Big Sky Exploration, LLC is a
-              surface diamond core drilling company serving mineral exploration programs across the West.
+              Where Integrity, Ingenuity, and Quality Result In Success.
             </p>
-            <div className="mt-9 flex flex-wrap gap-4">
+            <div className="mt-9 flex flex-wrap items-center gap-6">
               <Link
                 href="/bse/contact"
                 className="bg-[var(--bse-accent)] px-7 py-3.5 font-semibold text-[var(--bse-on-accent)] transition-opacity hover:opacity-90"
               >
-                Request a Bid
+                Request a bid
               </Link>
-              <Link
-                href="#work"
-                className="border border-[var(--bse-border-strong)] px-7 py-3.5 font-semibold transition-colors hover:border-[var(--bse-accent)] hover:text-[var(--bse-accent)]"
+              <a
+                href="tel:+16023296330"
+                className="text-[var(--bse-text)] underline decoration-[var(--bse-border-strong)] underline-offset-4 transition-colors hover:decoration-[var(--bse-accent)]"
               >
-                See Our Work
-              </Link>
+                or call 602-329-6330
+              </a>
             </div>
           </div>
           <div className="pb-14 md:py-10">
@@ -98,23 +130,23 @@ export default function BseHomePage() {
               images={[
                 {
                   src: "/bse/hero.jpg",
-                  alt: "Diamond core drill rig operating on a Big Sky Exploration project site",
-                  caption: "LF 90 — On Site",
+                  alt: "LF 90 drill rig with mast raised on a graded pad, support truck and drill pipe alongside",
+                  caption: "LF 90 on site",
                 },
               ]}
-              label="Expand image: diamond core drill rig on site"
-              className="group relative block aspect-[4/5] w-full overflow-hidden border border-[var(--bse-border)] md:aspect-[6/7] md:border-l-2 md:border-l-[var(--bse-accent)]"
+              label="Expand image: LF 90 on site"
+              className="group relative block aspect-[4/5] w-full overflow-hidden border border-[var(--bse-border)] transition-colors hover:border-[var(--bse-border-strong)] md:aspect-[6/7] md:border-l-2 md:border-l-[var(--bse-accent)]"
             >
               <Image
                 src="/bse/hero.jpg"
-                alt="Diamond core drill rig operating on a Big Sky Exploration project site"
+                alt="LF 90 drill rig with mast raised on a graded pad, support truck and drill pipe alongside"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 45vw"
                 className="object-cover"
               />
-              <span className="absolute bottom-3 left-3 bg-black/60 px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-[var(--bse-text)]">
-                LF 90 — On Site
+              <span className="absolute bottom-3 left-3 bg-black/60 px-3 py-1.5 text-xs text-[var(--bse-text)]">
+                LF 90 on site
               </span>
               <span className="absolute bottom-3 right-3 rounded-sm bg-black/60 p-1.5 text-[var(--bse-text)] opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100">
                 <ExpandIcon className="h-4 w-4" />
@@ -124,17 +156,15 @@ export default function BseHomePage() {
         </div>
       </section>
 
-      {/* Strengths */}
-      <section className="border-t border-[var(--bse-border)]">
+      {/* Value props */}
+      <section className="border-b border-[var(--bse-border)]">
         <div className="mx-auto max-w-6xl px-5 py-20">
-          <p className="bse-eyebrow mb-3">Why Big Sky</p>
-          <h2 className="bse-display text-4xl sm:text-5xl">Built for Difficult Ground</h2>
-          <div className="mt-12 grid gap-px border border-[var(--bse-border)] bg-[var(--bse-border)] sm:grid-cols-2">
+          <h2 className="text-2xl font-semibold sm:text-3xl">Why clients hire us</h2>
+          <div className="mt-10 grid gap-x-16 gap-y-10 sm:grid-cols-2">
             {strengths.map((s) => (
-              <div key={s.n} className="bg-[var(--bse-card)] p-8">
-                <p className="font-mono text-sm text-[var(--bse-accent)]">{s.n}</p>
-                <h3 className="bse-display mt-3 text-2xl">{s.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--bse-muted)]">{s.body}</p>
+              <div key={s.title} className="border-b border-[var(--bse-border)] pb-8">
+                <h3 className="text-lg font-semibold">{s.title}</h3>
+                <p className="mt-2 leading-relaxed text-[var(--bse-muted)]">{s.body}</p>
               </div>
             ))}
           </div>
@@ -142,31 +172,41 @@ export default function BseHomePage() {
       </section>
 
       {/* Gallery */}
-      <section id="work" className="border-t border-[var(--bse-border)] scroll-mt-20">
+      <section id="work" className="scroll-mt-20 border-b border-[var(--bse-border)]">
         <div className="mx-auto max-w-6xl px-5 py-20">
-          <p className="bse-eyebrow mb-3">Success in Action</p>
-          <h2 className="bse-display text-4xl sm:text-5xl">From the Field</h2>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <h2 className="text-2xl font-semibold sm:text-3xl">Recent work</h2>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {gallery.map((g, i) => (
-              <figure key={g.src} className="group border border-[var(--bse-border)] bg-[var(--bse-card)]">
+              <figure
+                key={g.src}
+                className={`group border border-[var(--bse-border)] bg-[var(--bse-card)] transition-colors hover:border-[var(--bse-border-strong)]${
+                  g.wide ? " sm:col-span-2" : ""
+                }`}
+              >
                 <LightboxTrigger
                   images={galleryImages}
                   startIndex={i}
                   label={`Expand image: ${g.label}`}
-                  className="relative block aspect-[4/3] w-full overflow-hidden"
+                  className={`relative block w-full overflow-hidden ${
+                    g.wide ? "aspect-[4/3] sm:aspect-[8/3]" : "aspect-[4/3]"
+                  }`}
                 >
                   <Image
                     src={g.src}
-                    alt={`${g.label} — Big Sky Exploration drilling operations`}
+                    alt={g.alt}
                     fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes={
+                      g.wide
+                        ? "(max-width: 1024px) 100vw, 66vw"
+                        : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    }
+                    className="object-cover"
                   />
                   <span className="absolute bottom-2 right-2 rounded-sm bg-black/60 p-1.5 text-[var(--bse-text)] opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100">
                     <ExpandIcon className="h-4 w-4" />
                   </span>
                 </LightboxTrigger>
-                <figcaption className="border-t border-[var(--bse-border)] px-4 py-3 font-mono text-xs uppercase tracking-widest text-[var(--bse-muted)]">
+                <figcaption className="border-t border-[var(--bse-border)] px-4 py-3 text-xs text-[var(--bse-muted)]">
                   {g.label}
                 </figcaption>
               </figure>
@@ -175,42 +215,43 @@ export default function BseHomePage() {
         </div>
       </section>
 
-      {/* Testimonial pull quote */}
-      <section className="border-t border-[var(--bse-border)] bg-[var(--bse-card)]">
-        <div className="mx-auto max-w-4xl px-5 py-20 text-center">
-          <p className="bse-eyebrow mb-6">What Clients Say</p>
-          <blockquote className="text-2xl leading-snug sm:text-3xl">
+      {/* Client references */}
+      <section className="border-b border-[var(--bse-border)] bg-[var(--bse-card)]">
+        <div className="mx-auto max-w-6xl px-5 py-20">
+          <h2 className="text-2xl font-semibold sm:text-3xl">Client references</h2>
+          <blockquote className="mt-8 max-w-3xl text-xl leading-relaxed">
             “BSE provides a high quality, very cost-effective, and efficient core drilling service. I
             highly recommend them and consider them to be our first choice core driller.”
           </blockquote>
-          <p className="mt-6 text-sm text-[var(--bse-muted)]">
+          <p className="mt-4 text-sm text-[var(--bse-muted)]">
             Steven A. Osterberg, Ph.D., P.G. — Vice President, Exploration, Timberline Resources Corporation
           </p>
           <Link
             href="/bse/testimonials"
-            className="mt-8 inline-block border border-[var(--bse-border-strong)] px-6 py-3 text-sm font-semibold transition-colors hover:border-[var(--bse-accent)] hover:text-[var(--bse-accent)]"
+            className="mt-6 inline-block text-[var(--bse-accent)] underline underline-offset-4 hover:no-underline"
           >
-            Read the Full Letters
+            Read the full letters
           </Link>
         </div>
       </section>
 
-      {/* CTA band */}
-      <section className="border-t border-[var(--bse-border)]">
-        <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-5 py-16 md:flex-row md:items-center md:justify-between">
-          <div>
-            <h2 className="bse-display text-4xl sm:text-5xl">
-              Have a Drill Program <span className="text-[var(--bse-accent)]">Coming Up?</span>
-            </h2>
-            <p className="mt-3 max-w-xl text-[var(--bse-muted)]">
-              Get in touch to learn how we will approach your project goals and reliably fulfill your contract.
-            </p>
-          </div>
+      {/* Contact band */}
+      <section>
+        <div className="mx-auto max-w-6xl px-5 py-16">
+          <h2 className="text-2xl font-semibold sm:text-3xl">Send us your project details</h2>
+          <p className="mt-3 max-w-2xl text-[var(--bse-muted)]">
+            Call{" "}
+            <a href="tel:+16023296330" className="text-[var(--bse-text)] underline underline-offset-4">
+              602-329-6330
+            </a>{" "}
+            or use the contact form. We&rsquo;ll get back to you with a straight answer on approach,
+            timeline, and cost.
+          </p>
           <Link
             href="/bse/contact"
-            className="shrink-0 bg-[var(--bse-accent)] px-8 py-4 font-semibold text-[var(--bse-on-accent)] transition-opacity hover:opacity-90"
+            className="mt-7 inline-block bg-[var(--bse-accent)] px-7 py-3.5 font-semibold text-[var(--bse-on-accent)] transition-opacity hover:opacity-90"
           >
-            Contact Us
+            Contact us
           </Link>
         </div>
       </section>

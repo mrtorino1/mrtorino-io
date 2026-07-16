@@ -4,7 +4,7 @@ test.describe("bse lightbox", () => {
   test("gallery image opens a navigable dialog and Esc closes it", async ({ page }) => {
     await page.goto("/bse");
 
-    await page.getByRole("button", { name: "Expand image: LF 90", exact: true }).first().click();
+    await page.getByRole("button", { name: "Expand image: LF 90 at first light" }).click();
     const dialog = page.getByRole("dialog");
     await expect(dialog).toBeVisible();
     await expect(dialog).toContainText("1 / 8");
@@ -21,7 +21,7 @@ test.describe("bse lightbox", () => {
 
   test("backdrop click closes; single-image mode has no arrows", async ({ page }) => {
     await page.goto("/bse");
-    await page.getByRole("button", { name: "Expand image: Reclamation" }).click();
+    await page.getByRole("button", { name: "Expand image: Site reclamation after program completion" }).click();
     const dialog = page.getByRole("dialog");
     await expect(dialog).toBeVisible();
     await dialog.click({ position: { x: 10, y: 300 } }); // backdrop, left of inset image area

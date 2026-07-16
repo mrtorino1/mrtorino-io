@@ -11,19 +11,19 @@ export const metadata: Metadata = {
 
 const capabilities = [
   {
-    title: "Custom Drill Bits",
+    title: "Custom drill bits",
     body: "We have the ability to reach out to manufacturers to customize drill bits for the ground you are drilling.",
   },
   {
-    title: "Project-Specific Mud Mixes",
+    title: "Project-specific mud mixes",
     body: "We design mud mixes for each specific project, adapting to hole conditions as they change.",
   },
   {
-    title: "Roads & Drill Pads",
+    title: "Roads & drill pads",
     body: "Our small fleet of heavy equipment and operators allows us to easily build roads and form drill pads.",
   },
   {
-    title: "Sumpless Drill Pads",
+    title: "Sumpless drill pads",
     body: "Environmental needs are attainable with our sumpless drill pad option, and full reclamation when the program wraps.",
   },
 ];
@@ -36,17 +36,21 @@ export default function BseAboutPage() {
       <section className="border-b border-[var(--bse-border)]">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 md:grid-cols-[3fr_2fr] md:py-20">
           <div>
-            <p className="bse-eyebrow mb-4">About Big Sky Exploration</p>
-            <h1 className="bse-display text-6xl sm:text-7xl">Core Values</h1>
+            <h1 className="text-4xl font-semibold sm:text-5xl">Core values</h1>
           </div>
           <LightboxTrigger
-            images={[{ src: "/bse/about.jpg", alt: "Big Sky Exploration crew and drill rig on site" }]}
-            label="Expand image: crew and drill rig on site"
-            className="group relative block aspect-[3/4] w-full overflow-hidden border border-[var(--bse-border)]"
+            images={[
+              {
+                src: "/bse/about.jpg",
+                alt: "Core box with runs of recovered core and handwritten depth markers, set on the ground at the drill site",
+              },
+            ]}
+            label="Expand image: core box at the drill site"
+            className="group relative block aspect-[3/4] w-full overflow-hidden border border-[var(--bse-border)] transition-colors hover:border-[var(--bse-border-strong)]"
           >
             <Image
               src="/bse/about.jpg"
-              alt="Big Sky Exploration crew and drill rig on site"
+              alt="Core box with runs of recovered core and handwritten depth markers, set on the ground at the drill site"
               fill
               priority
               sizes="(max-width: 768px) 100vw, 40vw"
@@ -62,9 +66,7 @@ export default function BseAboutPage() {
       <section className="mx-auto max-w-6xl px-5 py-20">
         <div className="grid gap-14 lg:grid-cols-2">
           <div>
-            <h2 className="bse-display text-4xl sm:text-5xl">
-              Specializing in <span className="text-[var(--bse-accent)]">Core Recovery</span>
-            </h2>
+            <h2 className="text-2xl font-semibold sm:text-3xl">Specializing in core recovery</h2>
             <div className="mt-7 space-y-5 leading-relaxed text-[var(--bse-muted)]">
               <p>
                 We established Big Sky Exploration out of a pure passion for diamond core drilling. In
@@ -81,30 +83,34 @@ export default function BseAboutPage() {
                 are attainable as well with our sumpless drill pad option.
               </p>
             </div>
+            <p className="mt-6 font-semibold">Ben Sieben, Owner</p>
+            <p className="mt-2 text-sm text-[var(--bse-muted)]">
+              Based in Arizona. Drilling projects throughout Nevada and the western United States.
+            </p>
             <Link
               href="/bse/contact"
-              className="mt-9 inline-block bg-[var(--bse-accent)] px-7 py-3.5 font-semibold text-[var(--bse-on-accent)] transition-opacity hover:opacity-90"
+              className="mt-8 inline-block bg-[var(--bse-accent)] px-7 py-3.5 font-semibold text-[var(--bse-on-accent)] transition-opacity hover:opacity-90"
             >
-              Get In Touch
+              Get in touch
             </Link>
           </div>
           <LightboxTrigger
             images={[
               {
                 src: "/bse/dolomite-2.jpg",
-                alt: "Recovered core samples from a sanded dolomite formation",
-                caption: "Sanded Dolomite",
+                alt: "Boxed runs of sanded dolomite core laid out for review",
+                caption: "Sanded dolomite core",
               },
             ]}
             label="Expand image: sanded dolomite core samples"
-            className="group relative block aspect-[3/4] w-full overflow-hidden border border-[var(--bse-border)] lg:aspect-auto lg:min-h-0"
+            className="group relative block aspect-[3/4] w-full overflow-hidden border border-[var(--bse-border)] transition-colors hover:border-[var(--bse-border-strong)] lg:aspect-auto lg:min-h-0"
           >
             <Image
               src="/bse/dolomite-2.jpg"
-              alt="Recovered core samples from a sanded dolomite formation"
+              alt="Boxed runs of sanded dolomite core laid out for review"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              className="object-cover"
             />
             <span className="absolute bottom-2 right-2 rounded-sm bg-black/60 p-1.5 text-[var(--bse-text)] opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100">
               <ExpandIcon className="h-4 w-4" />
@@ -115,13 +121,12 @@ export default function BseAboutPage() {
 
       <section className="border-t border-[var(--bse-border)]">
         <div className="mx-auto max-w-6xl px-5 py-20">
-          <p className="bse-eyebrow mb-3">Capabilities</p>
-          <h2 className="bse-display text-4xl sm:text-5xl">More Than a Drill Crew</h2>
-          <div className="mt-12 grid gap-px border border-[var(--bse-border)] bg-[var(--bse-border)] sm:grid-cols-2">
+          <h2 className="text-2xl font-semibold sm:text-3xl">More than a drill crew</h2>
+          <div className="mt-10 grid gap-x-16 gap-y-10 sm:grid-cols-2">
             {capabilities.map((c) => (
-              <div key={c.title} className="bg-[var(--bse-card)] p-8">
-                <h3 className="bse-display text-2xl">{c.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--bse-muted)]">{c.body}</p>
+              <div key={c.title} className="border-b border-[var(--bse-border)] pb-8">
+                <h3 className="text-lg font-semibold">{c.title}</h3>
+                <p className="mt-2 leading-relaxed text-[var(--bse-muted)]">{c.body}</p>
               </div>
             ))}
           </div>

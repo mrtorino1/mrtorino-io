@@ -28,7 +28,7 @@ export default function BseCareersPage() {
       <section className="relative flex min-h-[45vh] items-end overflow-hidden">
         <Image
           src="/bse/hiring.jpg"
-          alt="Big Sky Exploration crew at work on the drill platform"
+          alt="Worn leather work gloves beside a stack of hundred-dollar bills"
           fill
           priority
           sizes="100vw"
@@ -36,14 +36,17 @@ export default function BseCareersPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#161616] via-[#161616]/60 to-[#161616]/20" />
         <div className="relative mx-auto w-full max-w-6xl px-5 pb-14 pt-32">
-          <p className="bse-eyebrow mb-4">Now Hiring</p>
-          <h1 className="bse-display text-6xl sm:text-7xl">
-            We’re a Team. <span className="text-[var(--bse-accent)]">Come Join Us.</span>
-          </h1>
+          <p className="mb-4 text-sm text-[var(--bse-muted)]">Now hiring</p>
+          <h1 className="text-4xl font-semibold sm:text-5xl">We’re a Team. Come join us.</h1>
         </div>
         <LightboxTrigger
-          images={[{ src: "/bse/hiring.jpg", alt: "Big Sky Exploration crew at work on the drill platform" }]}
-          label="Expand image: crew at work on the drill platform"
+          images={[
+            {
+              src: "/bse/hiring.jpg",
+              alt: "Worn leather work gloves beside a stack of hundred-dollar bills",
+            },
+          ]}
+          label="Expand image: work gloves and pay"
           className="absolute bottom-4 right-4 z-10 rounded-sm bg-black/60 p-2 text-[var(--bse-text)] transition-colors hover:text-[var(--bse-accent)]"
         >
           <ExpandIcon className="h-5 w-5" />
@@ -54,7 +57,7 @@ export default function BseCareersPage() {
         <div className="grid gap-14 lg:grid-cols-[320px_1fr]">
           <aside className="space-y-10">
             <div>
-              <p className="bse-eyebrow mb-4">Open Positions</p>
+              <p className="mb-4 text-sm font-semibold">Open positions</p>
               <ul className="space-y-3">
                 {openings.map((o) => (
                   <li key={o} className="border border-[var(--bse-border)] bg-[var(--bse-card)] p-4 font-semibold">
@@ -64,27 +67,30 @@ export default function BseCareersPage() {
               </ul>
             </div>
             <div>
-              <p className="bse-eyebrow mb-4">Offering Qualified Drillers</p>
-              <ul className="space-y-2.5 text-sm text-[var(--bse-muted)]">
+              <p className="mb-4 text-sm font-semibold">Offering qualified drillers</p>
+              <ul className="space-y-2.5 text-sm leading-relaxed text-[var(--bse-muted)]">
                 {benefits.map((b) => (
-                  <li key={b} className="flex gap-3">
-                    <span aria-hidden className="mt-0.5 text-[var(--bse-accent)]">▸</span>
-                    {b}
-                  </li>
+                  <li key={b}>{b}</li>
                 ))}
               </ul>
             </div>
             <LightboxTrigger
-              images={[{ src: "/bse/lf90-sunrise.jpg", alt: "LF 90 drill rig at sunrise", caption: "LF 90 Sunrise" }]}
-              label="Expand image: LF 90 drill rig at sunrise"
-              className="group relative hidden aspect-[2/3] w-full overflow-hidden border border-[var(--bse-border)] lg:block"
+              images={[
+                {
+                  src: "/bse/lf90-sunrise.jpg",
+                  alt: "Sunrise over the mountains behind a trailer of drill rod at the site",
+                  caption: "LF 90 at first light",
+                },
+              ]}
+              label="Expand image: sunrise over the drill site"
+              className="group relative hidden aspect-[2/3] w-full overflow-hidden border border-[var(--bse-border)] transition-colors hover:border-[var(--bse-border-strong)] lg:block"
             >
               <Image
                 src="/bse/lf90-sunrise.jpg"
-                alt="LF 90 drill rig at sunrise"
+                alt="Sunrise over the mountains behind a trailer of drill rod at the site"
                 fill
                 sizes="320px"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover"
               />
               <span className="absolute bottom-2 right-2 rounded-sm bg-black/60 p-1.5 text-[var(--bse-text)] opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100">
                 <ExpandIcon className="h-4 w-4" />
@@ -93,7 +99,7 @@ export default function BseCareersPage() {
           </aside>
 
           <div>
-            <h2 className="bse-display text-4xl">Apply Now</h2>
+            <h2 className="text-2xl font-semibold sm:text-3xl">Apply now</h2>
             <p className="mt-3 max-w-xl text-sm text-[var(--bse-muted)]">
               Tell us a little about yourself and how to reach you. We review every application.
             </p>

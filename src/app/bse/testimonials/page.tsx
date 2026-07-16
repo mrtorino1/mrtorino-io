@@ -17,23 +17,25 @@ export default function BseTestimonialsPage() {
       <section className="border-b border-[var(--bse-border)]">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 md:grid-cols-[3fr_2fr] md:py-20">
           <div>
-            <p className="bse-eyebrow mb-4">What They’re Saying About Us</p>
-            <h1 className="bse-display text-6xl sm:text-7xl">Testimonials</h1>
+            <h1 className="text-4xl font-semibold sm:text-5xl">Testimonials</h1>
+            <p className="mt-4 max-w-md text-[var(--bse-muted)]">
+              Two letters of recommendation from recent core programs, reproduced in full.
+            </p>
           </div>
           <LightboxTrigger
             images={[
               {
                 src: "/bse/lf90-2.jpg",
-                alt: "LF 90 diamond core drill rig set up on a project site",
-                caption: "LF 90",
+                alt: "Core rig on a ridgetop pad with the valley floor stretching out behind it",
+                caption: "LF 90 set up on a ridgetop pad",
               },
             ]}
-            label="Expand image: LF 90 drill rig on site"
-            className="group relative block aspect-[3/4] w-full overflow-hidden border border-[var(--bse-border)]"
+            label="Expand image: LF 90 on a ridgetop pad"
+            className="group relative block aspect-[3/4] w-full overflow-hidden border border-[var(--bse-border)] transition-colors hover:border-[var(--bse-border-strong)]"
           >
             <Image
               src="/bse/lf90-2.jpg"
-              alt="LF 90 diamond core drill rig set up on a project site"
+              alt="Core rig on a ridgetop pad with the valley floor stretching out behind it"
               fill
               priority
               sizes="(max-width: 768px) 100vw, 40vw"
@@ -50,7 +52,7 @@ export default function BseTestimonialsPage() {
         {/* Timberline Resources */}
         <article className="border border-[var(--bse-border)] bg-[var(--bse-card)] p-8 sm:p-12">
           <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-[var(--bse-border)] pb-6">
-            <h2 className="bse-display text-3xl">Timberline Resources Corporation</h2>
+            <h2 className="text-2xl font-semibold">Timberline Resources Corporation</h2>
             <p className="font-mono text-xs uppercase tracking-widest text-[var(--bse-muted)]">August 5, 2022</p>
           </div>
           <div className="mt-7 space-y-5 leading-relaxed text-[var(--bse-muted)]">
@@ -105,7 +107,7 @@ export default function BseTestimonialsPage() {
         {/* GPE Consulting Services */}
         <article className="border border-[var(--bse-border)] bg-[var(--bse-card)] p-8 sm:p-12">
           <div className="border-b border-[var(--bse-border)] pb-6">
-            <h2 className="bse-display text-3xl">GPE Consulting Services</h2>
+            <h2 className="text-2xl font-semibold">GPE Consulting Services</h2>
           </div>
           <div className="mt-7 space-y-5 leading-relaxed text-[var(--bse-muted)]">
             <p>Dear Ben,</p>
@@ -142,13 +144,19 @@ export default function BseTestimonialsPage() {
           </footer>
         </article>
 
-        <div className="text-center">
-          <p className="text-[var(--bse-muted)]">Ready to see these results on your project?</p>
+        <div>
+          <p className="max-w-2xl text-[var(--bse-muted)]">
+            Call{" "}
+            <a href="tel:+16023296330" className="text-[var(--bse-text)] underline underline-offset-4">
+              602-329-6330
+            </a>{" "}
+            or send your project details through the contact form.
+          </p>
           <Link
             href="/bse/contact"
-            className="mt-5 inline-block bg-[var(--bse-accent)] px-7 py-3.5 font-semibold text-[var(--bse-on-accent)] transition-opacity hover:opacity-90"
+            className="mt-6 inline-block bg-[var(--bse-accent)] px-7 py-3.5 font-semibold text-[var(--bse-on-accent)] transition-opacity hover:opacity-90"
           >
-            Request a Bid
+            Request a bid
           </Link>
         </div>
       </section>

@@ -33,15 +33,6 @@
   line-height: 0.95;
 }
 
-/* Mono eyebrow labels */
-.bse-eyebrow {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.25em;
-  color: var(--bse-accent);
-}
-
 /* Lightbox open zoom — skipped entirely for reduced-motion users */
 @media (prefers-reduced-motion: no-preference) {
   .bse-lightbox-img {
