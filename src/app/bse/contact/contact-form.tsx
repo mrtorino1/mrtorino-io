@@ -42,6 +42,12 @@ export function ContactForm() {
       >
         Send Message
       </button>
+      <p className="text-sm text-[var(--bse-muted)]">
+        Or email us directly at{" "}
+        <a href="mailto:bse.b.sieben@gmail.com" className="text-[var(--bse-accent)] hover:underline">
+          bse.b.sieben@gmail.com
+        </a>
+      </p>
       {sent && (
         <p className="text-sm text-[var(--bse-accent)]">
           Thanks for submitting! Your email app should open with the message ready to send.

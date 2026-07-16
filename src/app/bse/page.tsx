@@ -27,9 +27,11 @@ const strengths = [
 const gallery = [
   { src: "/bse/lf90-1.jpg", label: "LF 90" },
   { src: "/bse/lf90-lf230.jpg", label: "LF 90 and LF 230" },
+  { src: "/bse/lf90-2.jpg", label: "LF 90" },
   { src: "/bse/reclamation.jpg", label: "Reclamation" },
   { src: "/bse/dolomite-1.jpg", label: "Sanded Dolomite" },
   { src: "/bse/dolomite-closeup.jpg", label: "Sanded Dolomite, Close-Up" },
+  { src: "/bse/dolomite-2.jpg", label: "Sanded Dolomite" },
   { src: "/bse/lf90-sunrise.jpg", label: "LF 90 Sunrise" },
 ];
 
@@ -95,7 +97,7 @@ export default function BseHomePage() {
         <div className="mx-auto max-w-6xl px-5 py-20">
           <p className="bse-eyebrow mb-3">Success in Action</p>
           <h2 className="bse-display text-4xl sm:text-5xl">From the Field</h2>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {gallery.map((g) => (
               <figure key={g.src} className="group border border-[var(--bse-border)] bg-[var(--bse-card)]">
                 <div className="relative aspect-[4/3] overflow-hidden">

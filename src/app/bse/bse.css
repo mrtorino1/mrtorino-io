@@ -10,6 +10,8 @@
   --bse-on-accent: #1a0d02;
   background: var(--bse-bg);
   color: var(--bse-text);
+  /* Self-contained body stack — no dependency on parent-site fonts */
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 .bse ::selection {
@@ -22,10 +24,10 @@
   outline-offset: 2px;
 }
 
-/* Heavy condensed uppercase display type (Bebas Neue via root --font-display) */
+/* Heavy condensed uppercase display type (Barlow Condensed 700, loaded in the BSE layout) */
 .bse-display {
-  font-family: var(--font-display), var(--font-geist-sans), sans-serif;
-  font-weight: 400;
+  font-family: var(--font-bse-display), "Arial Narrow", sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   line-height: 0.95;
@@ -33,7 +35,7 @@
 
 /* Mono eyebrow labels */
 .bse-eyebrow {
-  font-family: var(--font-geist-mono), monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.25em;

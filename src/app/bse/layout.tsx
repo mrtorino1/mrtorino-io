@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
+import { Barlow_Condensed } from "next/font/google";
 import Link from "next/link";
 import "./bse.css";
 import { BseNav } from "./nav";
+
+// Client-site display font, loaded here (not in the root layout) so the BSE
+// staging site shares no branding with mrtorino.io and can be extracted whole.
+const barlowCondensed = Barlow_Condensed({
+  weight: "700",
+  subsets: ["latin"],
+  variable: "--font-bse-display",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -15,7 +24,7 @@ export const metadata: Metadata = {
 
 export default function BseLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bse flex min-h-screen flex-col">
+    <div className={`${barlowCondensed.variable} bse flex min-h-screen flex-col`}>
       <BseNav />
       <main className="flex-1">{children}</main>
       <footer className="border-t border-[var(--bse-border)]">
