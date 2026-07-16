@@ -12,6 +12,11 @@
 
 # testing
 /coverage
+/test-results/
+
+# generated page captures from scripts/screenshot.mjs (flat files only —
+# real product assets live in subdirectories like public/screenshots/tradeschool/)
+/public/screenshots/*.png
 
 # next.js
 /.next/

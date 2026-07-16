@@ -20,44 +20,44 @@ const chips = ["Day Trading", "AI Automation", "Weather Markets", "BTC Signals",
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#faf9f7] text-[#111111] overflow-x-hidden">
+    <div className="min-h-screen bg-[#0a0a0a] text-[#f5f5f5] overflow-x-hidden">
       <OrganizationJsonLd />
       <SiteHeader />
 
       {/* HERO */}
-      <section className="border-b border-[#e7e4de]">
+      <section className="border-b border-[#1f1f1f]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-20 lg:pt-28 pb-16">
           <div className="fade-up">
-            <div className="flex items-center gap-2.5 text-[11px] uppercase tracking-[0.3em] text-[#75706b] mb-8">
+            <div className="flex items-center gap-2.5 text-[11px] uppercase tracking-[0.3em] text-[#6b6b6b] mb-8">
               <span className="h-2 w-2 bg-orange-500 flex-shrink-0" />
               Live software across trading, AI automation &amp; education
             </div>
 
             <h1
-              className="font-display uppercase leading-[0.88] max-w-5xl"
+              className="font-display uppercase leading-[0.88]"
               style={{ fontSize: "clamp(4rem, 10vw, 9rem)" }}
             >
-              I build software
+              I build software that does
               <span className="block">
-                that does <span className="text-outline">real things</span><span className="text-orange-500">.</span>
+                <span className="text-outline">real</span> things<span className="text-orange-500">.</span>
               </span>
             </h1>
 
-            <p className="mt-8 text-lg text-[#75706b] max-w-xl leading-relaxed">
+            <p className="mt-8 text-lg text-[#6b6b6b] max-w-xl leading-relaxed">
               Trading tools, AI systems, and education platforms — built by one person, shipped live, and used daily. No demos. No mockups. Real products.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/products/tradeschool-ai"
-                className="inline-flex items-center gap-2 h-12 px-7 bg-[#111111] text-[#faf9f7] text-sm font-medium uppercase tracking-[0.1em] hover:bg-black transition-colors"
+                className="inline-flex items-center gap-2 h-12 px-7 bg-[#f5f5f5] text-[#0a0a0a] text-sm font-medium uppercase tracking-[0.1em] hover:bg-white transition-colors"
               >
                 View flagship products
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/#ideas"
-                className="inline-flex items-center h-12 px-7 border border-[#111111] text-[#111111] text-sm uppercase tracking-[0.1em] hover:bg-[#111111] hover:text-[#faf9f7] transition-colors"
+                className="inline-flex items-center h-12 px-7 border border-[#2a2a2a] text-[#f5f5f5] text-sm uppercase tracking-[0.1em] hover:bg-[#f5f5f5] hover:text-[#0a0a0a] hover:border-[#f5f5f5] transition-colors"
               >
                 Read the build log
               </Link>
@@ -65,17 +65,17 @@ export default function HomePage() {
 
             <div className="mt-12 flex flex-wrap gap-2">
               {chips.map((chip) => (
-                <span key={chip} className="border border-[#e7e4de] bg-[#ffffff] px-3 py-1.5 text-xs text-[#75706b]">
+                <span key={chip} className="border border-[#1f1f1f] bg-[#111111] px-3 py-1.5 text-xs text-[#6b6b6b]">
                   {chip}
                 </span>
               ))}
             </div>
 
-            <div className="mt-12 grid grid-cols-3 max-w-md divide-x divide-[#e7e4de] border-y border-[#e7e4de]">
+            <div className="mt-12 grid grid-cols-3 max-w-md divide-x divide-[#1f1f1f] border-y border-[#1f1f1f]">
               {[["9", "live products"], ["3", "core showcases"], ["Free+", "software mix"]].map(([val, label]) => (
                 <div key={label} className="py-5 pr-6 first:pl-0 pl-6">
                   <div className="font-display text-3xl leading-none">{val}</div>
-                  <div className="text-xs text-[#75706b] mt-2 uppercase tracking-[0.14em]">{label}</div>
+                  <div className="text-xs text-[#6b6b6b] mt-2 uppercase tracking-[0.14em]">{label}</div>
                 </div>
               ))}
             </div>
@@ -97,30 +97,30 @@ export default function HomePage() {
       <section className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
         <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-center">
           <div>
-            <div className="flex items-center gap-2.5 text-[11px] uppercase tracking-[0.3em] text-orange-600 mb-4">
+            <div className="flex items-center gap-2.5 text-[11px] uppercase tracking-[0.3em] text-orange-400 mb-4">
               <span className="h-2 w-2 bg-orange-500 flex-shrink-0" />
               Flagship product
             </div>
             <h2 className="font-display uppercase text-5xl sm:text-6xl leading-[0.92] max-w-md">
               TradeSchool AI leads the studio.
             </h2>
-            <p className="mt-5 text-[#75706b] text-lg leading-relaxed max-w-md">
+            <p className="mt-5 text-[#6b6b6b] text-lg leading-relaxed max-w-md">
               The clearest expression of what this site is about: deep product design, strong interface systems,
               serious training logic, and a category-defining concept.
             </p>
             <div className="mt-6 space-y-3">
               {featuredProducts[0].bullets.map((b) => (
-                <div key={b} className="flex items-start gap-3 text-[#111111]/75 text-sm">
+                <div key={b} className="flex items-start gap-3 text-[#f5f5f5]/75 text-sm">
                   <div className="mt-1.5 h-1.5 w-1.5 bg-orange-500 flex-shrink-0" />
                   <span>{b}</span>
                 </div>
               ))}
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/products/tradeschool-ai" className="inline-flex items-center h-12 px-7 bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium uppercase tracking-[0.1em] transition-colors">
+              <Link href="/products/tradeschool-ai" className="inline-flex items-center h-12 px-7 bg-orange-500 hover:bg-orange-400 text-white text-sm font-medium uppercase tracking-[0.1em] transition-colors">
                 View TradeSchool AI
               </Link>
-              <Link href="/products/tradeschool-ai#screenshots" className="inline-flex items-center h-12 px-7 border border-[#111111] text-[#111111] text-sm uppercase tracking-[0.1em] hover:bg-[#111111] hover:text-[#faf9f7] transition-colors">
+              <Link href="/products/tradeschool-ai#screenshots" className="inline-flex items-center h-12 px-7 border border-[#2a2a2a] text-[#f5f5f5] text-sm uppercase tracking-[0.1em] hover:bg-[#f5f5f5] hover:text-[#0a0a0a] hover:border-[#f5f5f5] transition-colors">
                 See screenshots
               </Link>
             </div>
@@ -138,14 +138,14 @@ export default function HomePage() {
         <div className="grid lg:grid-cols-2 gap-5">
           {featuredProducts.slice(1).map((product) => (
             <div key={product.slug} className="product-card overflow-hidden" style={accentVars(product)}>
-              <div className="p-7 border-b border-[#e7e4de]">
+              <div className="p-7 border-b border-[#1f1f1f]">
                 <div className="text-[10px] uppercase tracking-[0.24em] mb-3" style={{ color: product.glowColor.replace(/[\d.]+\)$/, "1)") }}>
                   {product.tag}
                 </div>
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <h3 className="text-2xl font-semibold tracking-tight">{product.name}</h3>
-                    <p className="mt-2 text-[#75706b] text-sm leading-relaxed max-w-xs">{product.description}</p>
+                    <p className="mt-2 text-[#6b6b6b] text-sm leading-relaxed max-w-xs">{product.description}</p>
                   </div>
                   <Link
                     href={`/products/${product.slug}`}
@@ -155,7 +155,7 @@ export default function HomePage() {
                   </Link>
                 </div>
               </div>
-              <div className="p-5 bg-[#faf9f7]">
+              <div className="p-5 bg-[#0a0a0a]">
                 <ScreenMock
                   title={`${product.name} / interface`}
                   bars={product.slug === "weatherdashboard"
@@ -176,7 +176,7 @@ export default function HomePage() {
           <input
             type="text"
             placeholder="Search products, tools, ideas..."
-            className="w-full h-10 bg-[#ffffff] border border-[#e7e4de] px-4 text-sm text-[#111111] placeholder:text-[#75706b]/60 outline-none focus:border-[#111111] transition-colors"
+            className="w-full h-10 bg-[#111111] border border-[#1f1f1f] px-4 text-sm text-[#f5f5f5] placeholder:text-[#6b6b6b]/70 outline-none focus:border-[#f5f5f5] transition-colors"
           />
         </div>
 
@@ -189,22 +189,22 @@ export default function HomePage() {
 
       {/* IDEAS / INTERACTION */}
       <section className="max-w-7xl mx-auto px-6 lg:px-8 py-16" id="ideas">
-        <div className="border border-[#111111] bg-[#111111] text-[#faf9f7] p-8 lg:p-10">
+        <div className="border border-[#1f1f1f] bg-[#f5f5f5] text-[#0a0a0a] p-8 lg:p-10">
           <div className="grid lg:grid-cols-[1fr_0.85fr] gap-10 items-center">
             <div>
-              <div className="text-[11px] uppercase tracking-[0.3em] text-[#faf9f7]/50 mb-4">Ideas &amp; interaction</div>
+              <div className="text-[11px] uppercase tracking-[0.3em] text-[#0a0a0a]/50 mb-4">Ideas &amp; interaction</div>
               <h2 className="font-display uppercase text-4xl sm:text-5xl leading-[0.95] max-w-lg">
                 Got a feature idea? Found a bug? Just want to say something works — or doesn&apos;t?
               </h2>
-              <p className="mt-4 text-[#faf9f7]/60 text-lg leading-relaxed max-w-lg">
+              <p className="mt-4 text-[#0a0a0a]/60 text-lg leading-relaxed max-w-lg">
                 I read everything. Not a support ticket system. Just a direct line to the person who built it.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <a href="mailto:hello@mrtorino.io" className="inline-flex items-center gap-2 h-12 px-7 bg-[#faf9f7] text-[#111111] text-sm font-medium uppercase tracking-[0.1em] hover:bg-white transition-colors">
+                <a href="mailto:hello@mrtorino.io" className="inline-flex items-center gap-2 h-12 px-7 bg-[#0a0a0a] text-[#f5f5f5] text-sm font-medium uppercase tracking-[0.1em] hover:bg-black transition-colors">
                   <MessageSquare className="h-4 w-4" />
                   Share an idea
                 </a>
-                <button className="inline-flex items-center h-12 px-7 border border-[#faf9f7]/30 text-[#faf9f7] text-sm uppercase tracking-[0.1em] hover:border-[#faf9f7] transition-colors">
+                <button className="inline-flex items-center h-12 px-7 border border-[#0a0a0a]/30 text-[#0a0a0a] text-sm uppercase tracking-[0.1em] hover:border-[#0a0a0a] transition-colors">
                   View build notes
                 </button>
               </div>
@@ -215,9 +215,9 @@ export default function HomePage() {
                 ["Feature Requests", "Structured idea collection from real users"],
                 ["Build Log", "Transparent changelog — what shipped and why"],
               ].map(([title, desc]) => (
-                <div key={title} className="border border-[#faf9f7]/15 p-4">
+                <div key={title} className="border border-[#0a0a0a]/15 p-4">
                   <div className="font-semibold text-sm">{title}</div>
-                  <div className="text-xs text-[#faf9f7]/50 mt-1">{desc}</div>
+                  <div className="text-xs text-[#0a0a0a]/50 mt-1">{desc}</div>
                 </div>
               ))}
             </div>

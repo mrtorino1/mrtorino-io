@@ -55,7 +55,7 @@ export default async function ProductPage({ params }: Props) {
   const related = products.filter((p) => p.slug !== slug).slice(0, 2);
 
   return (
-    <div className="min-h-screen bg-[#faf9f7] text-[#111111] overflow-x-hidden">
+    <div className="min-h-screen bg-[#0a0a0a] text-[#f5f5f5] overflow-x-hidden">
       <SoftwareAppJsonLd product={product} />
       <SiteHeader />
 
@@ -63,7 +63,7 @@ export default async function ProductPage({ params }: Props) {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-6">
         <Link
           href="/"
-          className="inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.14em] text-[#75706b] hover:text-[#111111] transition-colors"
+          className="inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.14em] text-[#6b6b6b] hover:text-[#f5f5f5] transition-colors"
         >
           <ChevronLeft className="h-4 w-4" />
           Back to home
@@ -71,15 +71,15 @@ export default async function ProductPage({ params }: Props) {
       </div>
 
       {/* HERO */}
-      <section className="border-b border-[#e7e4de]">
+      <section className="border-b border-[#1f1f1f]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-10 pb-14">
           <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-12 items-center">
             <div className="fade-up">
               <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] mb-6">
                 <span className="h-2 w-2 flex-shrink-0" style={{ background: accent }} />
                 <span style={{ color: accent }}>{product.tag}</span>
-                <span className="text-[#d8d4cc]">/</span>
-                <span className="text-[#75706b]">{pricingLabel[product.pricing]}</span>
+                <span className="text-[#2a2a2a]">/</span>
+                <span className="text-[#6b6b6b]">{pricingLabel[product.pricing]}</span>
               </div>
 
               <h1
@@ -89,13 +89,13 @@ export default async function ProductPage({ params }: Props) {
                 {product.headline}
               </h1>
 
-              <p className="mt-6 text-lg text-[#75706b] max-w-xl leading-relaxed">
+              <p className="mt-6 text-lg text-[#6b6b6b] max-w-xl leading-relaxed">
                 {product.subheadline}
               </p>
 
               <div className="mt-5 flex flex-wrap gap-2">
                 {product.stats.map((s) => (
-                  <span key={s} className="border border-[#e7e4de] bg-[#ffffff] px-3 py-1.5 text-xs text-[#75706b]">
+                  <span key={s} className="border border-[#1f1f1f] bg-[#111111] px-3 py-1.5 text-xs text-[#6b6b6b]">
                     {s}
                   </span>
                 ))}
@@ -108,7 +108,7 @@ export default async function ProductPage({ params }: Props) {
                 >
                   Request access
                 </a>
-                <a href="#screenshots" className="inline-flex items-center h-12 px-7 border border-[#111111] text-[#111111] text-sm uppercase tracking-[0.1em] hover:bg-[#111111] hover:text-[#faf9f7] transition-colors">
+                <a href="#screenshots" className="inline-flex items-center h-12 px-7 border border-[#2a2a2a] text-[#f5f5f5] text-sm uppercase tracking-[0.1em] hover:bg-[#f5f5f5] hover:text-[#0a0a0a] hover:border-[#f5f5f5] transition-colors">
                   View screenshots
                 </a>
               </div>
@@ -116,11 +116,11 @@ export default async function ProductPage({ params }: Props) {
 
             <div className="relative">
               {product.slug === "tradeschool-ai" ? (
-                <div className="relative overflow-hidden border border-[#e7e4de] shadow-xl">
+                <div className="relative overflow-hidden border border-[#1f1f1f] shadow-xl">
                   <Image src="/screenshots/tradeschool/trackmap.png" alt="TradeSchool AI Track Map" width={1280} height={800} className="w-full h-auto" priority />
                 </div>
               ) : product.slug === "weatherdashboard" ? (
-                <div className="relative overflow-hidden border border-[#e7e4de] shadow-xl">
+                <div className="relative overflow-hidden border border-[#1f1f1f] shadow-xl">
                   <Image src="/screenshots/weatherdashboard/home.png" alt="WeatherDashboard" width={1280} height={800} className="w-full h-auto" priority />
                 </div>
               ) : (
@@ -145,10 +145,10 @@ export default async function ProductPage({ params }: Props) {
             <h2 className="font-display uppercase text-4xl sm:text-5xl leading-[0.95] max-w-md">
               {product.name} is built as a serious product, not a side project.
             </h2>
-            <p className="mt-5 text-[#75706b] text-lg leading-relaxed">{product.description}</p>
+            <p className="mt-5 text-[#6b6b6b] text-lg leading-relaxed">{product.description}</p>
             <div className="mt-6 space-y-3">
               {product.bullets.map((b) => (
-                <div key={b} className="flex items-start gap-3 text-[#111111]/75 text-sm">
+                <div key={b} className="flex items-start gap-3 text-[#f5f5f5]/75 text-sm">
                   <div
                     className="mt-1.5 h-1.5 w-1.5 flex-shrink-0"
                     style={{ background: accent }}
@@ -159,13 +159,13 @@ export default async function ProductPage({ params }: Props) {
             </div>
           </div>
 
-          <div className="border border-[#e7e4de] bg-[#ffffff] p-7 shadow-sm">
-            <div className="text-[11px] uppercase tracking-[0.3em] text-[#75706b] mb-3">Positioning</div>
+          <div className="border border-[#1f1f1f] bg-[#111111] p-7">
+            <div className="text-[11px] uppercase tracking-[0.3em] text-[#6b6b6b] mb-3">Positioning</div>
             <div className="font-display uppercase text-3xl mb-3">{product.shortName}</div>
-            <p className="text-[#75706b] leading-relaxed text-sm mb-5">{product.description}</p>
+            <p className="text-[#6b6b6b] leading-relaxed text-sm mb-5">{product.description}</p>
             <div className="grid grid-cols-2 gap-3">
               {product.stats.map((s) => (
-                <div key={s} className="border border-[#e7e4de] bg-[#faf9f7] px-3 py-3 text-xs text-[#75706b]">
+                <div key={s} className="border border-[#1f1f1f] bg-[#0a0a0a] px-3 py-3 text-xs text-[#6b6b6b]">
                   {s}
                 </div>
               ))}
@@ -181,10 +181,10 @@ export default async function ProductPage({ params }: Props) {
           {product.features.map((f) => (
             <div
               key={f.name}
-              className="border border-[#e7e4de] bg-[#ffffff] p-5 shadow-sm"
+              className="border border-[#1f1f1f] bg-[#111111] p-5"
             >
               <div className="font-semibold text-sm mb-2">{f.name}</div>
-              <p className="text-xs text-[#75706b] leading-relaxed">{f.desc}</p>
+              <p className="text-xs text-[#6b6b6b] leading-relaxed">{f.desc}</p>
             </div>
           ))}
         </div>
@@ -194,7 +194,7 @@ export default async function ProductPage({ params }: Props) {
       {product.slug === "tradeschool-ai" && (
         <section id="screenshots" className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
           <SectionHeading eyebrow="Inside the product" accentColor={accent} title="Every screen is purpose-built" />
-          <ScreenshotGallery accent="text-orange-600" shots={[
+          <ScreenshotGallery accent="text-orange-400" shots={[
             { src: "/screenshots/tradeschool/trackmap.png", alt: "TradeSchool AI Track Map", label: "Track Map", desc: "The 3D building map that replaces a boring course list. Each room is a learning zone — Risk Desk, Indicator Lab, Psychology Ward, The Pit. Rooms unlock as you progress.", full: true },
             { src: "/screenshots/tradeschool/controlroom.png", alt: "Control Room", label: "Control Room", desc: "Mission hub. Rex AI Coach on the left, current zone progress center, live domain scores across pattern recognition, entry timing, risk management, and strategy discipline.", full: true },
             { src: "/screenshots/tradeschool/simulator.png", alt: "Live Simulator", label: "Live Simulator", desc: "Real candlestick data with VWAP and EMA overlays. Every trade graded live across 5 execution dimensions — not just P&L.", full: true },
@@ -213,7 +213,7 @@ export default async function ProductPage({ params }: Props) {
       {product.slug === "weatherdashboard" && (
         <section id="screenshots" className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
           <SectionHeading eyebrow="Inside the product" accentColor={accent} title="Built for weather traders specifically" />
-          <ScreenshotGallery accent="text-cyan-600" shots={[
+          <ScreenshotGallery accent="text-cyan-400" shots={[
             { src: "/screenshots/weatherdashboard/contracts.png", alt: "Kalshi Contracts", label: "Contracts", desc: "All Kalshi contracts for a city in one table. Strike ranges, YES bid-ask, probability bars, volume. Scout analysis shows edge, NWS forecast, and last 5 settlements inline.", full: true },
             { src: "/screenshots/weatherdashboard/forecasts.png", alt: "Forecasts View", label: "Forecasts", desc: "NWS official, Weather Underground, and NBM blend model side by side with confidence scores. Consensus panel averages all models." },
             { src: "/screenshots/weatherdashboard/home.png", alt: "Home Market View", label: "Market View", desc: "Live Kalshi contracts with real-time bid-ask. NWS city forecast panel keeps all 15 cities visible while you work one contract." },
@@ -225,9 +225,9 @@ export default async function ProductPage({ params }: Props) {
       <section className="max-w-7xl mx-auto px-6 lg:px-8 py-10">
         <div className="grid lg:grid-cols-3 gap-4">
           {product.story.map((s) => (
-            <div key={s.title} className="border border-[#e7e4de] bg-[#ffffff] p-5 shadow-sm">
+            <div key={s.title} className="border border-[#1f1f1f] bg-[#111111] p-5">
               <div className="font-semibold text-sm mb-2">{s.title}</div>
-              <p className="text-xs text-[#75706b] leading-relaxed">{s.body}</p>
+              <p className="text-xs text-[#6b6b6b] leading-relaxed">{s.body}</p>
             </div>
           ))}
         </div>
@@ -243,13 +243,13 @@ export default async function ProductPage({ params }: Props) {
                 Get access
               </div>
               <h2 className="font-display uppercase text-4xl leading-[0.95] mb-4">Ready to use {product.shortName}?</h2>
-              <p className="text-[#75706b] text-sm leading-relaxed mb-6">
+              <p className="text-[#6b6b6b] text-sm leading-relaxed mb-6">
                 {product.pricing === "paid" ? "This is a paid product. Request access and I'll send pricing and next steps directly." : "Free tier available. Request access for the full version and I'll follow up with details."}
               </p>
               <div className="space-y-3">
                 {product.bullets.map((b: string) => (
-                  <div key={b} className="flex items-start gap-3 text-sm text-[#75706b]">
-                    <div className="mt-1.5 h-1.5 w-1.5 bg-[#75706b] flex-shrink-0" />
+                  <div key={b} className="flex items-start gap-3 text-sm text-[#6b6b6b]">
+                    <div className="mt-1.5 h-1.5 w-1.5 bg-[#6b6b6b] flex-shrink-0" />
                     {b}
                   </div>
                 ))}
@@ -262,26 +262,26 @@ export default async function ProductPage({ params }: Props) {
 
       {/* RELATED */}
       <section className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="border border-[#111111] bg-[#111111] text-[#faf9f7] p-8 lg:p-10">
+        <div className="border border-[#1f1f1f] bg-[#f5f5f5] text-[#0a0a0a] p-8 lg:p-10">
           <div className="grid lg:grid-cols-[1fr_0.9fr] gap-10 items-center">
             <div>
-              <div className="text-[11px] uppercase tracking-[0.3em] text-[#faf9f7]/50 mb-4">Keep exploring</div>
+              <div className="text-[11px] uppercase tracking-[0.3em] text-[#0a0a0a]/50 mb-4">Keep exploring</div>
               <h2 className="font-display uppercase text-4xl sm:text-5xl leading-[0.95] max-w-sm">
                 More from the studio.
               </h2>
-              <p className="mt-4 text-[#faf9f7]/60 leading-relaxed">
+              <p className="mt-4 text-[#0a0a0a]/60 leading-relaxed">
                 Every product in the studio is built as a real system. Explore the full lineup.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link
                   href={`/products/${related[0].slug}`}
-                  className="inline-flex items-center h-12 px-7 bg-[#faf9f7] text-[#111111] text-sm font-medium uppercase tracking-[0.1em] hover:bg-white transition-colors"
+                  className="inline-flex items-center h-12 px-7 bg-[#0a0a0a] text-[#f5f5f5] text-sm font-medium uppercase tracking-[0.1em] hover:bg-black transition-colors"
                 >
                   View {related[0].shortName}
                 </Link>
                 <Link
                   href={`/products/${related[1].slug}`}
-                  className="inline-flex items-center h-12 px-7 border border-[#faf9f7]/30 text-[#faf9f7] text-sm uppercase tracking-[0.1em] hover:border-[#faf9f7] transition-colors"
+                  className="inline-flex items-center h-12 px-7 border border-[#0a0a0a]/30 text-[#0a0a0a] text-sm uppercase tracking-[0.1em] hover:border-[#0a0a0a] transition-colors"
                 >
                   View {related[1].shortName}
                 </Link>
@@ -292,10 +292,10 @@ export default async function ProductPage({ params }: Props) {
                 <Link
                   key={p.slug}
                   href={`/products/${p.slug}`}
-                  className="block border border-[#faf9f7]/15 p-4 hover:border-[#faf9f7]/50 transition-colors"
+                  className="block border border-[#0a0a0a]/15 p-4 hover:border-[#0a0a0a]/50 transition-colors"
                 >
                   <div className="font-semibold text-sm">{p.name}</div>
-                  <div className="text-xs text-[#faf9f7]/50 mt-1">{p.description}</div>
+                  <div className="text-xs text-[#0a0a0a]/50 mt-1">{p.description}</div>
                 </Link>
               ))}
             </div>

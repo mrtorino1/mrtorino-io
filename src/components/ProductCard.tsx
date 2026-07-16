@@ -43,12 +43,12 @@ export default function ProductCard({ product, variant = "featured" }: ProductCa
               <div className="text-[10px] uppercase tracking-[0.24em] mt-1" style={{ color: accent }}>{product.tag}</div>
             </div>
           </div>
-          <span className="border border-[#e7e4de] px-2 py-0.5 text-[10px] uppercase tracking-[0.14em] text-[#75706b]">
+          <span className="border border-[#1f1f1f] px-2 py-0.5 text-[10px] uppercase tracking-[0.14em] text-[#6b6b6b]">
             {product.status}
           </span>
         </div>
-        <p className="text-xs text-[#75706b] leading-relaxed">{product.description}</p>
-        <div className="mt-4 flex items-center justify-between text-xs text-[#75706b] group-hover:text-[#111111] transition-colors">
+        <p className="text-xs text-[#6b6b6b] leading-relaxed">{product.description}</p>
+        <div className="mt-4 flex items-center justify-between text-xs text-[#6b6b6b] group-hover:text-[#f5f5f5] transition-colors">
           <span className="uppercase tracking-[0.14em]">View details</span>
           <ArrowRight className="h-3.5 w-3.5" />
         </div>
@@ -70,16 +70,16 @@ export default function ProductCard({ product, variant = "featured" }: ProductCa
             <h3 className="text-xl font-semibold tracking-tight mt-2">{product.name}</h3>
           </div>
         </div>
-        <span className="border border-[#e7e4de] px-2.5 py-1 text-[10px] uppercase tracking-[0.14em] text-[#75706b]">
+        <span className="border border-[#1f1f1f] px-2.5 py-1 text-[10px] uppercase tracking-[0.14em] text-[#6b6b6b]">
           {product.status}
         </span>
       </div>
 
-      <p className="text-sm text-[#75706b] leading-relaxed min-h-[60px]">{product.description}</p>
+      <p className="text-sm text-[#6b6b6b] leading-relaxed min-h-[60px]">{product.description}</p>
 
       <div className="mt-4 flex flex-wrap gap-1.5">
         {product.stats.map((s) => (
-          <span key={s} className="border border-[#e7e4de] bg-[#faf9f7] px-2.5 py-1 text-[10px] text-[#75706b]">
+          <span key={s} className="border border-[#1f1f1f] bg-[#0a0a0a] px-2.5 py-1 text-[10px] text-[#6b6b6b]">
             {s}
           </span>
         ))}
@@ -87,7 +87,7 @@ export default function ProductCard({ product, variant = "featured" }: ProductCa
 
       <div className="mt-5 flex items-center justify-between text-sm">
         <span className="group-hover:underline" style={{ color: accent }}>Explore {product.shortName} →</span>
-        <span className="text-[10px] uppercase tracking-[0.14em] text-[#75706b]">{pricingLabel[product.pricing]}</span>
+        <span className="text-[10px] uppercase tracking-[0.14em] text-[#6b6b6b]">{pricingLabel[product.pricing]}</span>
       </div>
     </Link>
   );

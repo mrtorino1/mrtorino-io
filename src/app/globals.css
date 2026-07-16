@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #faf9f7;
-  --surface: #ffffff;
-  --border: #e7e4de;
-  --foreground: #111111;
-  --muted: #75706b;
+  --background: #0a0a0a;
+  --surface: #111111;
+  --border: #1f1f1f;
+  --foreground: #f5f5f5;
+  --muted: #6b6b6b;
 }
 
 * {
@@ -40,12 +40,12 @@ h1, h2, h3 { font-weight: 600; }
 .product-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  box-shadow: 0 1px 2px rgba(17, 17, 17, 0.03);
   transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 .product-card:hover {
   border-color: var(--accent, var(--foreground));
-  box-shadow: 0 8px 32px var(--accent-glow, rgba(17, 17, 17, 0.08));
+  box-shadow: 0 0 0 1px var(--accent-glow, rgba(245, 245, 245, 0.08)),
+              0 8px 40px var(--accent-glow, rgba(245, 245, 245, 0.08));
   transform: translateY(-2px);
 }
 
@@ -57,7 +57,7 @@ h1, h2, h3 { font-weight: 600; }
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--background); }
-::-webkit-scrollbar-thumb { background: #d8d4cc; border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
 
 /* Page transitions */
@@ -72,6 +72,6 @@ h1, h2, h3 { font-weight: 600; }
 
 /* Focus styles */
 *:focus-visible {
-  outline: 2px solid rgba(17, 17, 17, 0.45);
+  outline: 2px solid rgba(245, 245, 245, 0.45);
   outline-offset: 2px;
 }
