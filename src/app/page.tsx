@@ -187,40 +187,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* IDEAS / INTERACTION */}
+      {/* IDEAS / INTERACTION
+          TODO(giscus phase): restore the "View build notes" button and the
+          Comments / Feature Requests / Build Log tiles once Giscus is wired up
+          (needs repo IDs from giscus.app — see the Notion build doc). Removed
+          for now so the homepage ships no dead UI. */}
       <section className="max-w-7xl mx-auto px-6 lg:px-8 py-16" id="ideas">
         <div className="border border-[#1f1f1f] bg-[#f5f5f5] text-[#0a0a0a] p-8 lg:p-10">
-          <div className="grid lg:grid-cols-[1fr_0.85fr] gap-10 items-center">
-            <div>
-              <div className="text-[11px] uppercase tracking-[0.3em] text-[#0a0a0a]/50 mb-4">Ideas &amp; interaction</div>
-              <h2 className="font-display uppercase text-4xl sm:text-5xl leading-[0.95] max-w-lg">
-                Got a feature idea? Found a bug? Just want to say something works — or doesn&apos;t?
-              </h2>
-              <p className="mt-4 text-[#0a0a0a]/60 text-lg leading-relaxed max-w-lg">
-                I read everything. Not a support ticket system. Just a direct line to the person who built it.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a href="mailto:hello@mrtorino.io" className="inline-flex items-center gap-2 h-12 px-7 bg-[#0a0a0a] text-[#f5f5f5] text-sm font-medium uppercase tracking-[0.1em] hover:bg-black transition-colors">
-                  <MessageSquare className="h-4 w-4" />
-                  Share an idea
-                </a>
-                <button className="inline-flex items-center h-12 px-7 border border-[#0a0a0a]/30 text-[#0a0a0a] text-sm uppercase tracking-[0.1em] hover:border-[#0a0a0a] transition-colors">
-                  View build notes
-                </button>
-              </div>
-            </div>
-            <div className="space-y-3">
-              {[
-                ["Comments", "Discuss product decisions and updates per release"],
-                ["Feature Requests", "Structured idea collection from real users"],
-                ["Build Log", "Transparent changelog — what shipped and why"],
-              ].map(([title, desc]) => (
-                <div key={title} className="border border-[#0a0a0a]/15 p-4">
-                  <div className="font-semibold text-sm">{title}</div>
-                  <div className="text-xs text-[#0a0a0a]/50 mt-1">{desc}</div>
-                </div>
-              ))}
-            </div>
+          <div className="text-[11px] uppercase tracking-[0.3em] text-[#0a0a0a]/50 mb-4">Ideas &amp; interaction</div>
+          <h2 className="font-display uppercase text-4xl sm:text-5xl leading-[0.95] max-w-lg">
+            Got a feature idea? Found a bug? Just want to say something works — or doesn&apos;t?
+          </h2>
+          <p className="mt-4 text-[#0a0a0a]/60 text-lg leading-relaxed max-w-lg">
+            I read everything. Not a support ticket system. Just a direct line to the person who built it.
+          </p>
+          <div className="mt-8">
+            <a href="mailto:hello@mrtorino.io" className="inline-flex items-center gap-2 h-12 px-7 bg-[#0a0a0a] text-[#f5f5f5] text-sm font-medium uppercase tracking-[0.1em] hover:bg-black transition-colors">
+              <MessageSquare className="h-4 w-4" />
+              Share an idea
+            </a>
           </div>
         </div>
       </section>

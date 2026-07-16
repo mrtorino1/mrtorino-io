@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ExpandIcon, LightboxTrigger } from "./lightbox";
-import { BSE_DESCRIPTION, BSE_URL } from "./seo";
+import { BSE_DESCRIPTION, BSE_TITLE, BSE_URL } from "./seo";
+
+export const metadata: Metadata = {
+  // absolute: the BSE layout's title.default would otherwise be formatted by
+  // the ROOT layout's "%s | mrtorino.io" template (templates apply to child
+  // segments, and /bse's default comes from a child layout of root).
+  title: { absolute: BSE_TITLE },
+};
 
 // Value props — headings are the first sentence of each original blurb,
 // bodies are the remaining client copy verbatim.
