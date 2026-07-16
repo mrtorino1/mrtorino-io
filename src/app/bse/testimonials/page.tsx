@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ExpandIcon, LightboxTrigger } from "../lightbox";
 
 export const metadata: Metadata = {
   title: "Testimonials",
@@ -11,19 +12,37 @@ export const metadata: Metadata = {
 export default function BseTestimonialsPage() {
   return (
     <>
-      <section className="relative flex min-h-[40vh] items-end overflow-hidden">
-        <Image
-          src="/bse/lf90-2.jpg"
-          alt="LF 90 diamond core drill rig set up on a project site"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#161616] via-[#161616]/50 to-transparent" />
-        <div className="relative mx-auto w-full max-w-6xl px-5 pb-14 pt-32">
-          <p className="bse-eyebrow mb-4">What They’re Saying About Us</p>
-          <h1 className="bse-display text-6xl sm:text-7xl">Testimonials</h1>
+      {/* lf90-2.jpg is portrait (3024x4032 after EXIF rotation) — aspect-matched
+          panel beside the title instead of a cropping full-width banner */}
+      <section className="border-b border-[var(--bse-border)]">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 md:grid-cols-[3fr_2fr] md:py-20">
+          <div>
+            <p className="bse-eyebrow mb-4">What They’re Saying About Us</p>
+            <h1 className="bse-display text-6xl sm:text-7xl">Testimonials</h1>
+          </div>
+          <LightboxTrigger
+            images={[
+              {
+                src: "/bse/lf90-2.jpg",
+                alt: "LF 90 diamond core drill rig set up on a project site",
+                caption: "LF 90",
+              },
+            ]}
+            label="Expand image: LF 90 drill rig on site"
+            className="group relative block aspect-[3/4] w-full overflow-hidden border border-[var(--bse-border)]"
+          >
+            <Image
+              src="/bse/lf90-2.jpg"
+              alt="LF 90 diamond core drill rig set up on a project site"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 40vw"
+              className="object-cover"
+            />
+            <span className="absolute bottom-2 right-2 rounded-sm bg-black/60 p-1.5 text-[var(--bse-text)] opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100">
+              <ExpandIcon className="h-4 w-4" />
+            </span>
+          </LightboxTrigger>
         </div>
       </section>
 

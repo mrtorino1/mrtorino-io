@@ -77,7 +77,7 @@ export default function BseCareersPage() {
             <LightboxTrigger
               images={[{ src: "/bse/lf90-sunrise.jpg", alt: "LF 90 drill rig at sunrise", caption: "LF 90 Sunrise" }]}
               label="Expand image: LF 90 drill rig at sunrise"
-              className="group relative hidden aspect-[3/4] w-full overflow-hidden border border-[var(--bse-border)] lg:block"
+              className="group relative hidden aspect-[2/3] w-full overflow-hidden border border-[var(--bse-border)] lg:block"
             >
               <Image
                 src="/bse/lf90-sunrise.jpg"

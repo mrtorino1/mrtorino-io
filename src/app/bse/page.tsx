@@ -65,39 +65,61 @@ export default function BseHomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      {/* Hero */}
-      <section className="relative flex min-h-[85vh] items-center overflow-hidden">
-        <Image
-          src="/bse/hero.jpg"
-          alt="Diamond core drill rig operating on a Big Sky Exploration project site"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#161616] via-[#161616]/80 to-[#161616]/30" />
-        <div className="relative mx-auto w-full max-w-6xl px-5 py-24">
-          <p className="bse-eyebrow mb-5">Surface Diamond Core Drilling · AZ ROC 354039</p>
-          <h1 className="bse-display max-w-3xl text-6xl sm:text-7xl md:text-8xl">
-            Specializing in <span className="text-[var(--bse-accent)]">Core Recovery</span>
-          </h1>
-          <p className="mt-6 max-w-xl text-lg text-[var(--bse-muted)]">
-            Where Integrity, Ingenuity, and Quality Result In Success. Big Sky Exploration, LLC is a
-            surface diamond core drilling company serving mineral exploration programs across the West.
-          </p>
-          <div className="mt-9 flex flex-wrap gap-4">
-            <Link
-              href="/bse/contact"
-              className="bg-[var(--bse-accent)] px-7 py-3.5 font-semibold text-[var(--bse-on-accent)] transition-opacity hover:opacity-90"
+      {/* Hero — split layout; hero.jpg is portrait (2202x2578, ~6/7) so it gets
+          its own aspect-matched panel instead of a cropping full-bleed cover */}
+      <section className="border-b border-[var(--bse-border)]">
+        <div className="mx-auto grid min-h-[85vh] max-w-6xl items-center gap-10 px-5 md:grid-cols-[55fr_45fr] md:gap-12">
+          <div className="pt-14 md:py-16">
+            <p className="bse-eyebrow mb-5">Surface Diamond Core Drilling · AZ ROC 354039</p>
+            <h1 className="bse-display text-6xl sm:text-7xl lg:text-8xl">
+              Specializing in <span className="text-[var(--bse-accent)]">Core Recovery</span>
+            </h1>
+            <p className="mt-6 max-w-xl text-lg text-[var(--bse-muted)]">
+              Where Integrity, Ingenuity, and Quality Result In Success. Big Sky Exploration, LLC is a
+              surface diamond core drilling company serving mineral exploration programs across the West.
+            </p>
+            <div className="mt-9 flex flex-wrap gap-4">
+              <Link
+                href="/bse/contact"
+                className="bg-[var(--bse-accent)] px-7 py-3.5 font-semibold text-[var(--bse-on-accent)] transition-opacity hover:opacity-90"
+              >
+                Request a Bid
+              </Link>
+              <Link
+                href="#work"
+                className="border border-[var(--bse-border-strong)] px-7 py-3.5 font-semibold transition-colors hover:border-[var(--bse-accent)] hover:text-[var(--bse-accent)]"
+              >
+                See Our Work
+              </Link>
+            </div>
+          </div>
+          <div className="pb-14 md:py-10">
+            <LightboxTrigger
+              images={[
+                {
+                  src: "/bse/hero.jpg",
+                  alt: "Diamond core drill rig operating on a Big Sky Exploration project site",
+                  caption: "LF 90 — On Site",
+                },
+              ]}
+              label="Expand image: diamond core drill rig on site"
+              className="group relative block aspect-[4/5] w-full overflow-hidden border border-[var(--bse-border)] md:aspect-[6/7] md:border-l-2 md:border-l-[var(--bse-accent)]"
             >
-              Request a Bid
-            </Link>
-            <Link
-              href="#work"
-              className="border border-[var(--bse-border-strong)] px-7 py-3.5 font-semibold transition-colors hover:border-[var(--bse-accent)] hover:text-[var(--bse-accent)]"
-            >
-              See Our Work
-            </Link>
+              <Image
+                src="/bse/hero.jpg"
+                alt="Diamond core drill rig operating on a Big Sky Exploration project site"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 45vw"
+                className="object-cover"
+              />
+              <span className="absolute bottom-3 left-3 bg-black/60 px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-[var(--bse-text)]">
+                LF 90 — On Site
+              </span>
+              <span className="absolute bottom-3 right-3 rounded-sm bg-black/60 p-1.5 text-[var(--bse-text)] opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100">
+                <ExpandIcon className="h-4 w-4" />
+              </span>
+            </LightboxTrigger>
           </div>
         </div>
       </section>
