@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <rect width="120" height="120" rx="28" fill="#140E00"/>
+  <rect x="0.5" y="0.5" width="119" height="119" rx="27.5" stroke="#f59e0b" stroke-opacity="0.3"/>
+  <circle cx="48" cy="64" r="26" stroke="#f59e0b" stroke-width="2.5" stroke-opacity="0.7" fill="none"/>
+  <circle cx="48" cy="64" r="18" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.25" fill="none"/>
+  <path d="M42 52 L42 76 M42 52 L52 52 Q58 52 58 58 Q58 63 52 63 L42 63 M42 63 L54 63 Q60 63 60 69.5 Q60 76 54 76 L42 76" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <line x1="46" y1="47" x2="46" y2="52" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="46" y1="76" x2="46" y2="81" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+  <polyline points="70,52 82,40 94,30" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 7"/>
+  <path d="M88 24 L100 24 L100 36" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <line x1="100" y1="24" x2="92" y2="32" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+  <rect x="14" y="98" width="92" height="3" rx="1.5" fill="#f59e0b" opacity="0.15"/>
+</svg>
