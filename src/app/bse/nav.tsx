@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { BseLogo } from "./logo";
 
 const links = [
   { href: "/bse", label: "Home" },
@@ -11,27 +12,6 @@ const links = [
   { href: "/bse/contact", label: "Contact" },
 ];
 
-// Simple mountain-ridge mark: two overlapping peaks, stroke only.
-function RidgeMark() {
-  return (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinejoin="round"
-      strokeLinecap="round"
-      aria-hidden="true"
-      className="shrink-0"
-    >
-      <path d="M2 19L8.5 8l4.5 7.5" />
-      <path d="M10 19l6-10 6 10" />
-    </svg>
-  );
-}
-
 export function BseNav() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
@@ -39,9 +19,13 @@ export function BseNav() {
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--bse-border)] bg-[var(--bse-bg)]/95 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4">
-        <Link href="/bse" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-          <RidgeMark />
-          <span className="bse-display text-2xl leading-none">Big Sky Exploration</span>
+        <Link
+          href="/bse"
+          aria-label="Big Sky Exploration — home"
+          className="shrink-0 text-[var(--bse-text)] transition-colors hover:text-[var(--bse-accent)] focus-visible:text-[var(--bse-accent)]"
+          onClick={() => setOpen(false)}
+        >
+          <BseLogo aria-hidden="true" className="h-6 w-auto md:h-8" />
         </Link>
 
         <div className="hidden items-center gap-7 md:flex">

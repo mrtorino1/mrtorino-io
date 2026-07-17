@@ -3,6 +3,7 @@ import { Barlow_Condensed } from "next/font/google";
 import Link from "next/link";
 import "./bse.css";
 import { BseNav } from "./nav";
+import { BseLogo } from "./logo";
 import { BSE_DESCRIPTION, BSE_INDEXABLE, BSE_TITLE, BSE_URL } from "./seo";
 
 // Client-site display font, loaded here (not in the root layout) so the BSE
@@ -61,7 +62,7 @@ export default function BseLayout({ children }: { children: React.ReactNode }) {
       <footer className="border-t border-[var(--bse-border)]">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-2">
           <div>
-            <p className="bse-display text-3xl">Big Sky Exploration</p>
+            <BseLogo role="img" aria-label="Big Sky Exploration" className="h-10 w-auto text-[var(--bse-text)]" />
             <p className="mt-3 text-sm text-[var(--bse-muted)]">
               Where Integrity, Ingenuity, and Quality Result In Success
             </p>
