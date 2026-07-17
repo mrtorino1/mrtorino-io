@@ -9,7 +9,14 @@ const navLinks = [
   { label: "Products", href: "/#library" },
 ];
 
-export default function SiteHeader() {
+type SiteHeaderProps = {
+  // Primary nav action; defaults to the studio's flagship-product link.
+  cta?: { label: string; href: string };
+};
+
+export default function SiteHeader({
+  cta = { label: "Explore", href: "/products/tradeschool-ai" },
+}: SiteHeaderProps) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -53,10 +60,10 @@ export default function SiteHeader() {
               Share an idea
             </Link>
             <Link
-              href="/products/tradeschool-ai"
+              href={cta.href}
               className="inline-flex items-center h-8 px-4 bg-[#f5f5f5] text-[#0a0a0a] text-xs font-medium uppercase tracking-[0.1em] hover:bg-white transition-colors"
             >
-              Explore
+              {cta.label}
             </Link>
             <button
               className="md:hidden h-8 w-8 border border-[#1f1f1f] text-[#f5f5f5] flex items-center justify-center"

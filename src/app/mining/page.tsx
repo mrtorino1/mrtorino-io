@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Barlow_Condensed } from "next/font/google";
-import { ArrowRight, Check, Drill, HardHat, Mountain, Truck } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
-import SectionHeading from "@/components/SectionHeading";
 
 // Industrial display type for the demonstration mockup only — loaded here so
 // the rest of the studio site keeps its own branding.
@@ -57,36 +56,47 @@ const jsonLd = {
 
 const audience = [
   {
-    icon: Drill,
-    title: "Drilling contractors",
+    lead: "Drilling contractors",
     body: "Core, RC, water well, and geotechnical drilling outfits that win work on reputation but have no web presence to back it up.",
   },
   {
-    icon: Mountain,
-    title: "Exploration services",
+    lead: "Exploration services",
     body: "Sampling, mapping, claim staking, and geophysics crews whose clients check them out online before the first phone call.",
   },
   {
-    icon: Truck,
-    title: "Mine-site support",
+    lead: "Mine-site support",
     body: "Earthworks, reclamation, hauling, and pad construction companies bidding against outfits with polished websites.",
   },
   {
-    icon: HardHat,
-    title: "Equipment & consumables",
+    lead: "Equipment & consumables",
     body: "Rig-parts suppliers, bit and rod dealers, and field-service shops that need a catalog customers can actually find.",
   },
 ];
 
-const included = [
-  "Custom design — no templates, built around your equipment, your crews, and your work",
-  "Copywriting that speaks your clients' language: recovery rates, uptime, safety record",
-  "Photo treatment that makes field photography look as good as the work behind it",
-  "Mobile-first build — most of your clients will open it from a truck, not a desk",
-  "Local + industry SEO so you show up when project managers search for contractors",
-  "Lead capture wired to your email — every inquiry lands in your inbox, no portal to check",
-  "Fast hosting with SSL included — pages load in under a second on a jobsite connection",
-  "You own everything: domain, content, and code. No monthly builder ransom.",
+const packageGroups = [
+  {
+    heading: "The build",
+    items: [
+      "Custom design — no templates, built around your equipment, your crews, and your work",
+      "Copywriting that speaks your clients' language: recovery rates, uptime, safety record",
+      "Photo treatment that makes field photography look as good as the work behind it",
+    ],
+  },
+  {
+    heading: "Getting found",
+    items: [
+      "Local + industry SEO so you show up when project managers search for contractors",
+      "Mobile-first build — most of your clients will open it from a truck, not a desk",
+      "Lead capture wired to your email — every inquiry lands in your inbox, no portal to check",
+    ],
+  },
+  {
+    heading: "The foundation",
+    items: [
+      "Fast hosting with SSL included — pages load in under a second on a jobsite connection",
+      "You own everything: domain, content, and code. No monthly builder ransom.",
+    ],
+  },
 ];
 
 const quoteHref =
@@ -235,26 +245,22 @@ export default function MiningPage() {
       className={`${barlowCondensed.variable} min-h-screen bg-[#0a0a0a] text-[#f5f5f5] overflow-x-hidden`}
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <SiteHeader />
+      <SiteHeader cta={{ label: "Get a quote", href: quoteHref }} />
 
       {/* HERO */}
-      <section className="border-b border-[#1f1f1f]">
+      <section>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-20 lg:pt-28 pb-16">
           <div className="fade-up">
-            <div className="flex items-center gap-2.5 text-[11px] uppercase tracking-[0.3em] text-[#6b6b6b] mb-8">
-              <span className="h-2 w-2 bg-orange-500 flex-shrink-0" />
+            <p className="text-[11px] uppercase tracking-[0.3em] text-[#6b6b6b] mb-8">
               Website design &amp; build · Mining, drilling &amp; exploration services
-            </div>
+            </p>
 
             <h1
               className="font-display uppercase leading-[0.88]"
               style={{ fontSize: "clamp(3.2rem, 8vw, 7.5rem)" }}
             >
               Your crews are professional.
-              <span className="block">
-                Your <span className="text-outline">website</span> should be too
-                <span className="text-orange-500">.</span>
-              </span>
+              <span className="block">Your website should be too.</span>
             </h1>
 
             <p className="mt-8 text-lg text-[#6b6b6b] max-w-xl leading-relaxed">
@@ -282,40 +288,21 @@ export default function MiningPage() {
         </div>
       </section>
 
-      {/* WHO IT'S FOR */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <SectionHeading eyebrow="Who it's for" title="Built for the field" accentColor="#f97316" />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {audience.map(({ icon: Icon, title, body }) => (
-            <div key={title} className="border border-[#1f1f1f] bg-[#111111] p-6">
-              <Icon className="h-5 w-5 text-orange-500" />
-              <h3 className="mt-4 text-lg font-semibold">{title}</h3>
-              <p className="mt-2 text-sm text-[#6b6b6b] leading-relaxed">{body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* Hazard-stripe divider — once on the page, hero → sample only */}
+      <div
+        aria-hidden="true"
+        className="h-1.5"
+        style={{
+          background: "repeating-linear-gradient(-45deg, #f97316 0 8px, #0a0a0a 8px 16px)",
+        }}
+      />
 
       {/* SAMPLE PROJECT — fictional demonstration */}
       <section id="sample" className="scroll-mt-20 max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        {/* SectionHeading forces whitespace-nowrap, which clips this long title
-            on mobile — inline the same treatment with wrapping allowed. */}
-        <div className="mb-10">
-          <div className="flex items-center gap-2.5 text-[11px] uppercase tracking-[0.3em] text-[#6b6b6b] mb-3">
-            <span className="h-2 w-2 flex-shrink-0 bg-[#f97316]" />
-            Example design
-          </div>
-          <div className="flex items-center gap-6">
-            <h2 className="font-display uppercase text-4xl sm:text-5xl leading-none">
-              Sample project: Service Contractors LLC
-            </h2>
-            <div className="hidden sm:flex flex-1 items-center">
-              <div className="h-[3px] w-12 flex-shrink-0 bg-[#f97316]" />
-              <div className="h-px flex-1 bg-[#1f1f1f]" />
-            </div>
-          </div>
-        </div>
-        <p className="-mt-4 mb-10 max-w-2xl text-sm text-[#6b6b6b] leading-relaxed">
+        <h2 className="font-display uppercase text-4xl sm:text-5xl leading-none">
+          Sample project: Service Contractors LLC
+        </h2>
+        <p className="mt-6 mb-10 max-w-2xl text-sm text-[#6b6b6b] leading-relaxed">
           Service Contractors LLC is a <strong className="text-[#f5f5f5]/80">fictional company</strong> —
           this section is a demonstration of the kind of site I design and build for contractors in
           this space, not a client project. Both frames below are illustrative.
@@ -341,14 +328,58 @@ export default function MiningPage() {
         </p>
       </section>
 
+      {/* WHO IT'S FOR */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+        <h2 className="font-display uppercase text-4xl sm:text-5xl leading-none mb-10">
+          Built for the field
+        </h2>
+        <div className="grid gap-x-12 lg:grid-cols-2 max-w-5xl">
+          {audience.map(({ lead, body }) => (
+            <p
+              key={lead}
+              className="border-t border-[#1f1f1f] py-6 text-sm text-[#6b6b6b] leading-relaxed"
+            >
+              <strong className="font-semibold text-[#f5f5f5]">{lead}.</strong> {body}
+            </p>
+          ))}
+        </div>
+      </section>
+
+      {/* WHO YOU'RE WORKING WITH */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+        <h2 className="font-display uppercase text-4xl sm:text-5xl leading-none">
+          Who you&apos;re working with
+        </h2>
+        <p className="mt-6 max-w-2xl text-lg text-[#6b6b6b] leading-relaxed">
+          I design, build, and answer the email myself — one person, no account managers, no
+          handoffs. I work from Medford, Oregon, where I&apos;ve designed, built, and shipped nine
+          live products solo at{" "}
+          <Link
+            href="/"
+            className="text-[#f5f5f5] underline decoration-[#2a2a2a] underline-offset-4 transition-colors hover:decoration-[#f5f5f5]"
+          >
+            the studio
+          </Link>
+          . When you email about your site, I&apos;m the one who reads it.
+        </p>
+      </section>
+
       {/* WHAT'S INCLUDED */}
       <section className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <SectionHeading eyebrow="What's included" title="The whole package" accentColor="#f97316" />
-        <div className="grid md:grid-cols-2 gap-x-12 gap-y-5 max-w-5xl">
-          {included.map((item) => (
-            <div key={item} className="flex items-start gap-3 text-sm text-[#f5f5f5]/75 leading-relaxed">
-              <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-orange-500" />
-              <span>{item}</span>
+        <h2 className="font-display uppercase text-4xl sm:text-5xl leading-none mb-10">
+          The whole package
+        </h2>
+        <div className="grid gap-10 md:grid-cols-3 max-w-5xl">
+          {packageGroups.map(({ heading, items }) => (
+            <div key={heading}>
+              <h3 className="font-semibold">{heading}</h3>
+              <div className="mt-4 space-y-4">
+                {items.map((item) => (
+                  <p key={item} className="text-sm text-[#6b6b6b] leading-relaxed">
+                    {item}
+                  </p>
+                ))}
+              </div>
             </div>
           ))}
         </div>
@@ -357,9 +388,7 @@ export default function MiningPage() {
       {/* QUOTE CTA */}
       <section className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
         <div className="border border-[#1f1f1f] bg-[#f5f5f5] text-[#0a0a0a] p-8 lg:p-10">
-          <div className="text-[11px] uppercase tracking-[0.3em] text-[#0a0a0a]/50 mb-4">
-            Straight answer, no sales call
-          </div>
+          <div className="text-sm text-[#0a0a0a]/50 mb-4">Straight answer, no sales call.</div>
           <h2 className="font-display uppercase text-4xl sm:text-5xl leading-[0.95] max-w-lg">
             Send me what you do. I&apos;ll send back a fixed quote.
           </h2>
@@ -376,10 +405,36 @@ export default function MiningPage() {
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
+          <p className="mt-4 text-sm text-[#0a0a0a]/60">
+            You&apos;ll hear back from me — the person who builds it.
+          </p>
         </div>
       </section>
 
-      <SiteFooter />
+      {/* Slim footer — a drilling prospect doesn't need the product catalog */}
+      <footer className="border-t border-[#1f1f1f] mt-10 bg-[#111111]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+          <div>
+            <div className="font-display uppercase text-2xl leading-none">
+              mrtorino.io<span className="text-orange-500">.</span>
+            </div>
+            <div className="text-xs text-[#6b6b6b] mt-2">
+              Designed and built by one person. Medford, OR.
+            </div>
+          </div>
+          <div className="sm:text-right">
+            <Link
+              href="/"
+              className="text-xs text-[#6b6b6b] hover:text-[#f5f5f5] transition-colors"
+            >
+              More from the studio →
+            </Link>
+            <div className="text-xs text-[#6b6b6b]/70 mt-2">
+              © {new Date().getFullYear()} mrtorino.io
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
