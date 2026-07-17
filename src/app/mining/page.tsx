@@ -1,8 +1,34 @@
 import type { Metadata } from "next";
 import { Barlow_Condensed } from "next/font/google";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
+
+/*
+ * Photo provenance — public/mining/. All images are public domain (US federal
+ * government works) or CC0; no attribution required, recorded here for audit.
+ *
+ * rig-night-nevada.jpg (hero background)
+ *   Source: https://commons.wikimedia.org/wiki/File:Drilling_rig_NV_(35231574420).jpg
+ *   Author: BLM Nevada (Flickr) · License: Public domain (US federal government work)
+ *
+ * drill-crew-pretty-rocks.jpg ("Built for the field" panel)
+ *   Source: https://commons.wikimedia.org/wiki/File:Drilling_occurred_at_Pretty_Rocks_in_2018._Core_samples_from_the_drilling_indicate_how_much_ice_underlies_this_part_of_the_(db7aa7dd-5660-41f2-8ced-0f001b7f2a6f).jpg
+ *   Author: Mary Lewandowski, National Park Service (NPGallery) · License: Public domain (US federal government work)
+ *
+ * drill-core-closeup.jpg (texture band above the closing CTA)
+ *   Source: https://commons.wikimedia.org/wiki/File:Listwaenite_drill_core_Oman.jpg
+ *   Author: Diorit · License: CC0 (public domain dedication)
+ *
+ * pit-candelaria-nevada.jpg (candidate, not currently placed)
+ *   Source: https://commons.wikimedia.org/wiki/File:Pit_Mine_at_Candelaria_(54091288221).jpg
+ *   Author: BLM Nevada · License: Public domain (US federal government work)
+ *
+ * high-desert-aerial-nevada.jpg (candidate, not currently placed)
+ *   Source: https://commons.wikimedia.org/wiki/File:Abandon_Mine_Closure_BLM_Nevada_(44912037374).jpg
+ *   Author: BLM Nevada ("mypubliclands" Flickr) · License: Public domain (US federal government work)
+ */
 
 // Industrial display type for the demonstration mockup only — loaded here so
 // the rest of the studio site keeps its own branding.
@@ -247,9 +273,23 @@ export default function MiningPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <SiteHeader cta={{ label: "Get a quote", href: quoteHref }} />
 
-      {/* HERO */}
-      <section>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-20 lg:pt-28 pb-16">
+      {/* HERO — night drill-rig photo as a subdued atmosphere layer, kept well
+          under the text with a heavy dark overlay */}
+      <section className="relative">
+        <Image
+          src="/mining/rig-night-nevada.jpg"
+          alt=""
+          aria-hidden="true"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/75 via-[#0a0a0a]/60 to-[#0a0a0a]" />
+        <p className="absolute bottom-3 right-4 z-10 text-[10px] text-[#6b6b6b]">
+          Drill rig on public land, Nevada — BLM photo, public domain
+        </p>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-20 lg:pt-28 pb-16">
           <div className="fade-up">
             <p className="text-[11px] uppercase tracking-[0.3em] text-[#6b6b6b] mb-8">
               Website design &amp; build · Mining, drilling &amp; exploration services
@@ -333,15 +373,31 @@ export default function MiningPage() {
         <h2 className="font-display uppercase text-4xl sm:text-5xl leading-none mb-10">
           Built for the field
         </h2>
-        <div className="grid gap-x-12 lg:grid-cols-2 max-w-5xl">
-          {audience.map(({ lead, body }) => (
-            <p
-              key={lead}
-              className="border-t border-[#1f1f1f] py-6 text-sm text-[#6b6b6b] leading-relaxed"
-            >
-              <strong className="font-semibold text-[#f5f5f5]">{lead}.</strong> {body}
-            </p>
-          ))}
+        <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] items-start">
+          <div className="grid gap-x-12 sm:grid-cols-2">
+            {audience.map(({ lead, body }) => (
+              <p
+                key={lead}
+                className="border-t border-[#1f1f1f] py-6 text-sm text-[#6b6b6b] leading-relaxed"
+              >
+                <strong className="font-semibold text-[#f5f5f5]">{lead}.</strong> {body}
+              </p>
+            ))}
+          </div>
+          <figure className="border border-[#1f1f1f]">
+            <div className="relative aspect-[3/2]">
+              <Image
+                src="/mining/drill-crew-pretty-rocks.jpg"
+                alt="Core drilling crew working a rig on a mountain road, snow-capped peaks behind"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover"
+              />
+            </div>
+            <figcaption className="border-t border-[#1f1f1f] px-4 py-3 text-xs text-[#6b6b6b]">
+              Core drilling at Pretty Rocks, Denali — National Park Service photo, public domain
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -384,6 +440,22 @@ export default function MiningPage() {
           ))}
         </div>
       </section>
+
+      {/* Core-sample texture band — atmosphere, not portfolio */}
+      <div className="relative mt-6 h-32 md:h-44">
+        <Image
+          src="/mining/drill-core-closeup.jpg"
+          alt=""
+          aria-hidden="true"
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-[#0a0a0a]/35" />
+        <p className="absolute bottom-2 right-4 text-[10px] text-[#f5f5f5]/60">
+          Oriented exploration drill core — CC0 photo
+        </p>
+      </div>
 
       {/* QUOTE CTA */}
       <section className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
