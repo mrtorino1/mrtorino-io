@@ -63,7 +63,7 @@ export default function BseLayout({ children }: { children: React.ReactNode }) {
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-2">
           <div>
             <BseLogo role="img" aria-label="Big Sky Exploration" className="h-20 w-auto text-[var(--bse-text)]" />
-            <p className="mt-3 text-sm text-[var(--bse-muted)]">
+            <p className="mt-3 text-sm text-[var(--bse-sky)]">
               Where Integrity, Ingenuity, and Quality Result In Success
             </p>
             <p className="mt-4 text-sm">

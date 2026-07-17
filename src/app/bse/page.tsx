@@ -109,7 +109,7 @@ export default function BseHomePage() {
       <section className="border-b border-[var(--bse-border)]">
         <div className="mx-auto grid min-h-[85vh] max-w-6xl items-center gap-10 px-5 md:grid-cols-[55fr_45fr] md:gap-12">
           <div className="pt-14 md:py-16">
-            <p className="mb-5 text-sm text-[var(--bse-muted)]">
+            <p className="mb-5 text-sm text-[var(--bse-sky)]">
               Surface diamond core drilling · Licensed &amp; insured · AZ ROC 354039
             </p>
             <h1 className="bse-display text-6xl sm:text-7xl lg:text-8xl">

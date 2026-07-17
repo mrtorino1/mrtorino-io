@@ -6,8 +6,9 @@
   --bse-border-strong: #333333;
   --bse-text: #f5f0e8;
   --bse-muted: #b8b2a7;
-  --bse-accent: #38bdf8;
-  --bse-on-accent: #06202e;
+  --bse-accent: #f97316;
+  --bse-on-accent: #1a0d02;
+  --bse-sky: #38bdf8;
   background: var(--bse-bg);
   color: var(--bse-text);
   /* Self-contained body stack — no dependency on parent-site fonts */
