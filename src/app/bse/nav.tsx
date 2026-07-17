@@ -25,7 +25,7 @@ export function BseNav() {
           className="shrink-0 text-[var(--bse-text)] transition-colors hover:text-[var(--bse-accent)] focus-visible:text-[var(--bse-accent)]"
           onClick={() => setOpen(false)}
         >
-          <BseLogo aria-hidden="true" className="h-6 w-auto md:h-8" />
+          <BseLogo aria-hidden="true" className="h-12 w-auto md:h-16" />
         </Link>
 
         <div className="hidden items-center gap-7 md:flex">
