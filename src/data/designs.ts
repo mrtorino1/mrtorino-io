@@ -65,6 +65,18 @@ export const designs: DesignProject[] = [
         notes:
           "De-template pass (plain trade headings, no eyebrows, asymmetric gallery, aspect-matched portrait panels) plus the client's official single-color logo at 2× size; orange accent with a sky-blue secondary. Last /bse change 31fbd3b; captured from production 2026-08-29 at HEAD 2d8699a.",
       },
+      {
+        version: "v4",
+        label: "Drill-log / catalog system",
+        date: "2026-08-29",
+        commit: "69264aa",
+        screenshots: {
+          desktop: "/designs/bse/v4-desktop.png",
+          mobile: "/designs/bse/v4-mobile.png",
+        },
+        notes:
+          "Drill-log / equipment-catalog system: sheet-rule section headers, figure-numbered photos with caption bars, nameplate data plate, title-block footer, scroll-linked depth rule on md+ (static under reduced motion, hidden on mobile), grounded hero with a larger Barlow Condensed H1. Single orange accent — sky blue removed. Copy unchanged. Captured from production 2026-08-29.",
+      },
     ],
   },
   {
