@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
+  // /designs (internal design archive) is deliberately absent — noindexed, direct URL only.
   // /bse staging routes join the sitemap only once the client site goes public.
   const bseUrls = BSE_INDEXABLE
     ? ["", "/about", "/testimonials", "/contact", "/careers"].map((path) => ({
