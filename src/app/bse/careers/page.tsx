@@ -24,8 +24,9 @@ const benefits = [
 export default function BseCareersPage() {
   return (
     <>
-      {/* Sheet 01 — title + Fig. 1. hiring.jpg is landscape (750x505), so the
-          panel takes a 3:2 frame instead of filling the row. */}
+      {/* Sheet 01 — title + Fig. 1. lf90-lf230.jpg (900x723, client photo,
+          also gallery Fig. 4 on the homepage). The former work-gloves-and-cash stock
+          image was removed: not a BSE photo, licensing unverified. */}
       <section className="border-b border-[var(--bse-border)]">
         <div className="mx-auto max-w-6xl px-5">
           <SheetHeader n={1} title="Now hiring" meta="Fig. 1" />
@@ -35,13 +36,13 @@ export default function BseCareersPage() {
             </div>
             <Figure
               fig={1}
-              src="/bse/hiring.jpg"
-              alt="Worn leather work gloves beside a stack of hundred-dollar bills"
-              caption="Work gloves and pay"
-              label="Expand image: work gloves and pay"
+              src="/bse/lf90-lf230.jpg"
+              alt="Two core rigs working neighboring pads on a juniper-covered hillside"
+              caption="LF 90 and LF 230, dual set‑up"
+              label="Expand image: LF 90 and LF 230, dual set-up"
               priority
               sizes="(max-width: 768px) 100vw, 40vw"
-              aspectClass="aspect-[3/2] md:aspect-auto md:min-h-[20rem] md:flex-1"
+              aspectClass="aspect-[5/4] md:aspect-auto md:min-h-[20rem] md:flex-1"
               className="border-t-0 md:border-r-0"
             />
           </div>
