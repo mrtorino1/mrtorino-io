@@ -8,6 +8,9 @@ test.describe("bse lightbox", () => {
     const dialog = page.getByRole("dialog");
     await expect(dialog).toBeVisible();
     await expect(dialog).toContainText("1 / 8");
+    // Figure-numbered caption bar (hero is Fig. 1, so the first gallery tile is Fig. 2)
+    await expect(dialog).toContainText("Fig. 2 — LF 90 at first light");
+    await expect(dialog).toContainText("Photo: BSE");
 
     // Arrow-key navigation advances the set
     await page.keyboard.press("ArrowRight");

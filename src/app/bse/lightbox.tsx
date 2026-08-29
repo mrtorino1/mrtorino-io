@@ -7,6 +7,8 @@ export type LightboxImage = {
   src: string;
   alt: string;
   caption?: string;
+  /** Figure number on the page — rendered as "FIG. N — caption" in the viewer. */
+  fig?: number;
 };
 
 export function ExpandIcon({ className }: { className?: string }) {
@@ -84,7 +86,7 @@ function LightboxOverlay({
     <div
       role="dialog"
       aria-modal="true"
-      aria-label={img.caption ?? img.alt}
+      aria-label={img.fig && img.caption ? `Fig. ${img.fig} — ${img.caption}` : (img.caption ?? img.alt)}
       className="fixed inset-0 z-[100] bg-black/90"
       onClick={onClose}
     >
@@ -151,15 +153,20 @@ function LightboxOverlay({
       )}
 
       <div
-        className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-4 px-5 py-4 font-mono text-xs uppercase tracking-widest text-[var(--bse-muted)]"
+        className="bse-mono absolute inset-x-0 bottom-0 flex items-center justify-between gap-4 border-t border-[var(--bse-border)] bg-[var(--bse-bg)] px-5 py-3 text-[var(--bse-muted)]"
         onClick={(e) => e.stopPropagation()}
       >
-        <span>{img.caption ?? ""}</span>
-        {many && (
-          <span aria-live="polite">
-            {index + 1} / {images.length}
-          </span>
-        )}
+        <span>
+          {img.fig && img.caption ? `Fig. ${img.fig} — ${img.caption}` : (img.caption ?? "")}
+        </span>
+        <span className="flex shrink-0 gap-4">
+          <span>Photo: BSE</span>
+          {many && (
+            <span aria-live="polite">
+              {index + 1} / {images.length}
+            </span>
+          )}
+        </span>
       </div>
     </div>
   );

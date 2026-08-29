@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { ExpandIcon, LightboxTrigger } from "./lightbox";
+import { Figure, Nameplate, SheetHeader } from "./sheet";
 import { BSE_DESCRIPTION, BSE_TITLE, BSE_URL } from "./seo";
 
 export const metadata: Metadata = {
@@ -76,10 +75,19 @@ const gallery = [
   },
 ];
 
-const galleryImages = gallery.map((g) => ({
+// Figure numbering runs per page: the hero photo is Fig. 1, the gallery 2–9.
+const heroImage = {
+  src: "/bse/hero.jpg",
+  alt: "LF 90 drill rig with mast raised on a graded pad, support truck and drill pipe alongside",
+  caption: "LF 90 on site",
+  fig: 1,
+};
+
+const galleryImages = gallery.map((g, i) => ({
   src: g.src,
   alt: g.alt,
   caption: g.label,
+  fig: i + 2,
 }));
 
 const jsonLd = {
@@ -104,129 +112,112 @@ export default function BseHomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      {/* Hero — split layout; hero.jpg is portrait (2202x2578, ~6/7) so it gets
-          its own aspect-matched panel instead of a cropping full-bleed cover */}
+      {/* Sheet 01 — hero. Split layout kept; the photo panel sits flush to the
+          sheet rule and the right content edge (no floating-card inset).
+          hero.jpg is portrait (2202x2578) so it fills the row height. */}
       <section className="border-b border-[var(--bse-border)]">
-        <div className="mx-auto grid min-h-[85vh] max-w-6xl items-center gap-10 px-5 md:grid-cols-[55fr_45fr] md:gap-12">
-          <div className="pt-14 md:py-16">
-            <p className="mb-5 text-sm text-[var(--bse-sky)]">
-              Surface diamond core drilling · Licensed &amp; insured · AZ ROC 354039
-            </p>
-            <h1 className="bse-display text-6xl sm:text-7xl lg:text-8xl">
-              Specializing in Core Recovery
-            </h1>
-            <p className="mt-6 max-w-xl text-lg text-[var(--bse-muted)]">
-              Where Integrity, Ingenuity, and Quality Result In Success.
-            </p>
-            <div className="mt-9 flex flex-wrap items-center gap-6">
-              <Link
-                href="/bse/contact"
-                className="bg-[var(--bse-accent)] px-7 py-3.5 font-semibold text-[var(--bse-on-accent)] transition-opacity hover:opacity-90"
-              >
-                Request a bid
-              </Link>
-              <a
-                href="tel:+16023296330"
-                className="text-[var(--bse-text)] underline decoration-[var(--bse-border-strong)] underline-offset-4 transition-colors hover:decoration-[var(--bse-accent)]"
-              >
-                or call 602-329-6330
-              </a>
+        <div className="mx-auto max-w-6xl px-5">
+          <SheetHeader
+            n={1}
+            title="Surface diamond core drilling"
+            meta={<>Licensed &amp; insured · AZ ROC 354039</>}
+          />
+          <div className="grid items-stretch gap-10 md:grid-cols-[3fr_2fr] md:gap-12">
+            <div className="flex flex-col justify-center pt-12 md:py-20">
+              <h1 className="bse-display text-6xl sm:text-8xl lg:text-[6.75rem]">
+                Specializing in Core Recovery
+              </h1>
+              <p className="mt-6 max-w-xl text-base text-[var(--bse-muted)]">
+                Where Integrity, Ingenuity, and Quality Result In Success.
+              </p>
+              <div className="mt-9 flex flex-wrap items-center gap-6">
+                <Link
+                  href="/bse/contact"
+                  className="bg-[var(--bse-accent)] px-7 py-3.5 font-semibold text-[var(--bse-on-accent)] transition-opacity hover:opacity-90"
+                >
+                  Request a bid
+                </Link>
+                <a
+                  href="tel:+16023296330"
+                  className="text-[var(--bse-text)] underline decoration-[var(--bse-border-strong)] underline-offset-4 transition-colors hover:decoration-[var(--bse-accent)]"
+                >
+                  or call 602-329-6330
+                </a>
+              </div>
             </div>
-          </div>
-          <div className="pb-14 md:py-10">
-            <LightboxTrigger
-              images={[
-                {
-                  src: "/bse/hero.jpg",
-                  alt: "LF 90 drill rig with mast raised on a graded pad, support truck and drill pipe alongside",
-                  caption: "LF 90 on site",
-                },
-              ]}
+            <Figure
+              fig={1}
+              src={heroImage.src}
+              alt={heroImage.alt}
+              caption={heroImage.caption}
+              images={[heroImage]}
               label="Expand image: LF 90 on site"
-              className="group relative block aspect-[4/5] w-full overflow-hidden border border-[var(--bse-border)] transition-colors hover:border-[var(--bse-border-strong)] md:aspect-[6/7] md:border-l-2 md:border-l-[var(--bse-accent)]"
-            >
-              <Image
-                src="/bse/hero.jpg"
-                alt="LF 90 drill rig with mast raised on a graded pad, support truck and drill pipe alongside"
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 45vw"
-                className="object-cover"
-              />
-              <span className="absolute bottom-3 left-3 bg-black/60 px-3 py-1.5 text-xs text-[var(--bse-text)]">
-                LF 90 on site
-              </span>
-              <span className="absolute bottom-3 right-3 rounded-sm bg-black/60 p-1.5 text-[var(--bse-text)] opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100">
-                <ExpandIcon className="h-4 w-4" />
-              </span>
-            </LightboxTrigger>
+              priority
+              sizes="(max-width: 768px) 100vw, 40vw"
+              aspectClass="aspect-[4/5] md:aspect-auto md:flex-1"
+              className="border-t-0 md:border-r-0"
+            />
           </div>
         </div>
       </section>
 
-      {/* Value props */}
+      {/* Nameplate — equipment data plate */}
       <section className="border-b border-[var(--bse-border)]">
-        <div className="mx-auto max-w-6xl px-5 py-20">
-          <h2 className="text-2xl font-semibold sm:text-3xl">Why clients hire us</h2>
+        <div className="mx-auto max-w-6xl px-5 py-10">
+          <Nameplate />
+        </div>
+      </section>
+
+      {/* Sheet 02 — value props */}
+      <section className="border-b border-[var(--bse-border)]">
+        <div className="mx-auto max-w-6xl px-5 pb-20 pt-6">
+          <SheetHeader n={2} title="Why clients hire us" meta="Licensed & insured" />
+          <h2 className="mt-8 text-3xl font-semibold tracking-tight sm:text-4xl">Why clients hire us</h2>
           <div className="mt-10 grid gap-x-16 gap-y-10 sm:grid-cols-2">
             {strengths.map((s) => (
               <div key={s.title} className="border-b border-[var(--bse-border)] pb-8">
                 <h3 className="text-lg font-semibold">{s.title}</h3>
-                <p className="mt-2 leading-relaxed text-[var(--bse-muted)]">{s.body}</p>
+                <p className="mt-2 text-[15px] leading-relaxed text-[var(--bse-muted)]">{s.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Gallery */}
+      {/* Sheet 03 — gallery as numbered figures */}
       <section id="work" className="scroll-mt-20 border-b border-[var(--bse-border)]">
-        <div className="mx-auto max-w-6xl px-5 py-20">
-          <h2 className="text-2xl font-semibold sm:text-3xl">Recent work</h2>
+        <div className="mx-auto max-w-6xl px-5 pb-20 pt-6">
+          <SheetHeader n={3} title="Recent work" meta="Figs. 2–9" />
+          <h2 className="mt-8 text-3xl font-semibold tracking-tight sm:text-4xl">Recent work</h2>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {gallery.map((g, i) => (
-              <figure
+              <Figure
                 key={g.src}
-                className={`group border border-[var(--bse-border)] bg-[var(--bse-card)] transition-colors hover:border-[var(--bse-border-strong)]${
-                  g.wide ? " sm:col-span-2" : ""
-                }`}
-              >
-                <LightboxTrigger
-                  images={galleryImages}
-                  startIndex={i}
-                  label={`Expand image: ${g.label}`}
-                  className={`relative block w-full overflow-hidden ${
-                    g.wide ? "aspect-[4/3] sm:aspect-[8/3]" : "aspect-[4/3]"
-                  }`}
-                >
-                  <Image
-                    src={g.src}
-                    alt={g.alt}
-                    fill
-                    sizes={
-                      g.wide
-                        ? "(max-width: 1024px) 100vw, 66vw"
-                        : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    }
-                    className="object-cover"
-                  />
-                  <span className="absolute bottom-2 right-2 rounded-sm bg-black/60 p-1.5 text-[var(--bse-text)] opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100">
-                    <ExpandIcon className="h-4 w-4" />
-                  </span>
-                </LightboxTrigger>
-                <figcaption className="border-t border-[var(--bse-border)] px-4 py-3 text-xs text-[var(--bse-muted)]">
-                  {g.label}
-                </figcaption>
-              </figure>
+                fig={i + 2}
+                src={g.src}
+                alt={g.alt}
+                caption={g.label}
+                images={galleryImages}
+                startIndex={i}
+                label={`Expand image: ${g.label}`}
+                sizes={
+                  g.wide
+                    ? "(max-width: 1024px) 100vw, 66vw"
+                    : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                }
+                aspectClass={g.wide ? "aspect-[4/3] sm:aspect-[8/3]" : "aspect-[4/3]"}
+                className={g.wide ? "sm:col-span-2" : ""}
+              />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Client references */}
+      {/* Sheet 04 — client references */}
       <section className="border-b border-[var(--bse-border)] bg-[var(--bse-card)]">
-        <div className="mx-auto max-w-6xl px-5 py-20">
-          <h2 className="text-2xl font-semibold sm:text-3xl">Client references</h2>
+        <div className="mx-auto max-w-6xl px-5 pb-20 pt-6">
+          <SheetHeader n={4} title="Client references" meta="2 letters on file" />
+          <h2 className="mt-8 text-3xl font-semibold tracking-tight sm:text-4xl">Client references</h2>
           <blockquote className="mt-8 max-w-3xl text-xl leading-relaxed">
             “BSE provides a high quality, very cost-effective, and efficient core drilling service. I
             highly recommend them and consider them to be our first choice core driller.”
@@ -243,24 +234,32 @@ export default function BseHomePage() {
         </div>
       </section>
 
-      {/* Contact band */}
+      {/* Contact band — inside a light title-block frame */}
       <section>
-        <div className="mx-auto max-w-6xl px-5 py-16">
-          <h2 className="text-2xl font-semibold sm:text-3xl">Send us your project details</h2>
-          <p className="mt-3 max-w-2xl text-[var(--bse-muted)]">
-            Call{" "}
-            <a href="tel:+16023296330" className="text-[var(--bse-text)] underline underline-offset-4">
-              602-329-6330
-            </a>{" "}
-            or use the contact form. We&rsquo;ll get back to you with a straight answer on approach,
-            timeline, and cost.
-          </p>
-          <Link
-            href="/bse/contact"
-            className="mt-7 inline-block bg-[var(--bse-accent)] px-7 py-3.5 font-semibold text-[var(--bse-on-accent)] transition-opacity hover:opacity-90"
-          >
-            Contact us
-          </Link>
+        <div className="mx-auto max-w-6xl px-5 py-14">
+          <div className="border border-[var(--bse-text)]">
+            <div className="bse-mono flex flex-wrap justify-between gap-x-6 gap-y-1 border-b border-[var(--bse-text)] px-6 py-2 text-[var(--bse-muted)] sm:px-8">
+              <span>Project inquiry</span>
+              <span>602-329-6330</span>
+            </div>
+            <div className="px-6 py-10 sm:px-8">
+              <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Send us your project details</h2>
+              <p className="mt-3 max-w-2xl text-[15px] text-[var(--bse-muted)]">
+                Call{" "}
+                <a href="tel:+16023296330" className="text-[var(--bse-text)] underline underline-offset-4">
+                  602-329-6330
+                </a>{" "}
+                or use the contact form. We&rsquo;ll get back to you with a straight answer on approach,
+                timeline, and cost.
+              </p>
+              <Link
+                href="/bse/contact"
+                className="mt-7 inline-block bg-[var(--bse-accent)] px-7 py-3.5 font-semibold text-[var(--bse-on-accent)] transition-opacity hover:opacity-90"
+              >
+                Contact us
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </>

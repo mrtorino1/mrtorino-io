@@ -4,6 +4,7 @@ import Link from "next/link";
 import "./bse.css";
 import { BseNav } from "./nav";
 import { BseLogo } from "./logo";
+import { DepthRule } from "./depth-rule";
 import { BSE_DESCRIPTION, BSE_INDEXABLE, BSE_TITLE, BSE_URL } from "./seo";
 
 // Client-site display font, loaded here (not in the root layout) so the BSE
@@ -54,48 +55,71 @@ export const metadata: Metadata = {
   robots: BSE_INDEXABLE ? { index: true, follow: true } : { index: false, follow: false },
 };
 
+const footerLinks = [
+  { href: "/bse", label: "Home" },
+  { href: "/bse/about", label: "About" },
+  { href: "/bse/testimonials", label: "Testimonials" },
+  { href: "/bse/contact", label: "Contact" },
+  { href: "/bse/careers", label: "Now Hiring" },
+];
+
+function TitleCell({ label, children, className = "" }: { label: string; children: React.ReactNode; className?: string }) {
+  return (
+    <div className={`border-[var(--bse-border-strong)] px-4 py-3 ${className}`}>
+      <p className="bse-mono text-[var(--bse-muted)]">{label}</p>
+      <div className="mt-1 text-sm">{children}</div>
+    </div>
+  );
+}
+
 export default function BseLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className={`${barlowCondensed.variable} bse flex min-h-screen flex-col`}>
+    <div className={`${barlowCondensed.variable} bse flex min-h-screen flex-col md:pl-14`}>
+      <DepthRule />
       <BseNav />
       <main className="flex-1">{children}</main>
-      <footer className="border-t border-[var(--bse-border)]">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-2">
-          <div>
-            <BseLogo role="img" aria-label="Big Sky Exploration" className="h-20 w-auto text-[var(--bse-text)]" />
-            <p className="mt-3 text-sm text-[var(--bse-sky)]">
-              Where Integrity, Ingenuity, and Quality Result In Success
-            </p>
-            <p className="mt-4 text-sm">
-              Big Sky Exploration, LLC · Licensed &amp; Insured · AZ ROC 354039
-            </p>
-            <p className="mt-2 text-sm">
-              <a href="mailto:bse.b.sieben@gmail.com" className="hover:text-[var(--bse-accent)]">
-                bse.b.sieben@gmail.com
-              </a>
-              {" · "}
+      {/* Title block — engineering drawing footer */}
+      <footer className="bse-sheet-rule">
+        <div className="mx-auto max-w-6xl px-5 pb-8 pt-12">
+          <BseLogo role="img" aria-label="Big Sky Exploration" className="h-20 w-auto max-w-full text-[var(--bse-text)]" />
+          <p className="mt-3 text-sm text-[var(--bse-muted)]">
+            Where Integrity, Ingenuity, and Quality Result In Success
+          </p>
+          <div className="mt-8 grid border border-[var(--bse-text)] sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1.4fr_0.7fr]">
+            <TitleCell label="Project" className="border-b sm:border-r lg:border-b-0">
+              Big Sky Exploration, LLC
+            </TitleCell>
+            <TitleCell label="License" className="border-b lg:border-b-0 lg:border-r">
+              AZ ROC 354039 · Licensed &amp; Insured
+            </TitleCell>
+            <TitleCell label="Contact" className="border-b sm:border-b-0 sm:border-r">
               <a href="tel:+16023296330" className="hover:text-[var(--bse-accent)]">
                 602-329-6330
               </a>
-            </p>
+              {" · "}
+              <a href="mailto:bse.b.sieben@gmail.com" className="break-all hover:text-[var(--bse-accent)]">
+                bse.b.sieben@gmail.com
+              </a>
+            </TitleCell>
+            <TitleCell label="Sheet">
+              <span className="font-mono">1 OF 1</span>
+            </TitleCell>
           </div>
-          <div className="md:justify-self-end">
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/bse" className="hover:text-[var(--bse-accent)]">Home</Link></li>
-              <li><Link href="/bse/about" className="hover:text-[var(--bse-accent)]">About</Link></li>
-              <li><Link href="/bse/testimonials" className="hover:text-[var(--bse-accent)]">Testimonials</Link></li>
-              <li><Link href="/bse/contact" className="hover:text-[var(--bse-accent)]">Contact</Link></li>
-              <li><Link href="/bse/careers" className="hover:text-[var(--bse-accent)]">Now Hiring</Link></li>
-            </ul>
-          </div>
-        </div>
-        <div className="border-t border-[var(--bse-border)]">
           {/* TODO: confirm founding year with client, then switch to
               "© [year]–2026" and add "Serving the mining exploration industry
               since [year]" — do not guess a year in visible copy. */}
-          <p className="mx-auto max-w-6xl px-5 py-5 text-xs text-[var(--bse-muted)]">
-            © 2026 Big Sky Exploration, LLC. All rights reserved.
-          </p>
+          <div className="mt-5 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2 text-xs text-[var(--bse-muted)]">
+            <p>© 2026 Big Sky Exploration, LLC. All rights reserved.</p>
+            <ul className="flex flex-wrap gap-x-5 gap-y-1">
+              {footerLinks.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="hover:text-[var(--bse-accent)]">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </footer>
     </div>
