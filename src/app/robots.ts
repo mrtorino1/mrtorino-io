@@ -1,13 +1,13 @@
 import type { MetadataRoute } from "next";
-import { BSE_INDEXABLE } from "./bse/seo";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
       allow: "/",
-      // /bse is a client staging site; blocked until its kill switch flips.
-      ...(BSE_INDEXABLE ? {} : { disallow: "/bse" }),
+      // /bse was the BSE client staging site, now redirecting to
+      // bigskyexploration.com — keep it out of this site's index.
+      disallow: "/bse",
     },
     sitemap: "https://www.mrtorino.io/sitemap.xml",
   };

@@ -28,7 +28,8 @@ export const designs: DesignProject[] = [
   {
     project: "Big Sky Exploration",
     slug: "bse",
-    client: "Big Sky Exploration, LLC — surface diamond core drilling",
+    client:
+      "Big Sky Exploration, LLC — surface diamond core drilling. Launched at bigskyexploration.com 2026-09-04; site now lives in the big-sky-exploration repo.",
     versions: [
       {
         version: "v1",
@@ -76,6 +77,18 @@ export const designs: DesignProject[] = [
         },
         notes:
           "Drill-log / equipment-catalog system: sheet-rule section headers, figure-numbered photos with caption bars, nameplate data plate, title-block footer, scroll-linked depth rule on md+ (static under reduced motion, hidden on mobile), grounded hero with a larger Barlow Condensed H1. Single orange accent — sky blue removed. Copy unchanged. Captured from production 2026-08-29.",
+      },
+      {
+        version: "v5",
+        label: "Production launch",
+        date: "2026-09-04",
+        commit: "72cfaf4",
+        screenshots: {
+          desktop: "/designs/bse/v5-desktop.png",
+          mobile: "/designs/bse/v5-mobile.png",
+        },
+        notes:
+          "Launched at bigskyexploration.com: site extracted to its own repo (big-sky-exploration, commit 72cfaf4), routes de-prefixed, contact email switched to ben@bigskyexploration.com, deployed as a static export to Cloudflare Pages. v4 visual system unchanged. Captured from production 2026-09-04.",
       },
     ],
   },
